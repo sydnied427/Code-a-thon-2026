@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add initial.css)",
+      "Bash(git commit -m \"Update initial.css\")",
+      "Bash(git pull origin main --rebase)",
+      "Bash(git push origin main)"
+    ]
+  }
+}
