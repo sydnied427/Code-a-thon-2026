@@ -359,6 +359,21 @@
                 margin-top: 0;
                 padding: 1.25em 2.375em
             }
+			<script>
+                                                    (function removeAltauth2Loading(){
+                                                        function removeOnce(){
+                                                            const byId = document.getElementById('altauth2-loading');
+                                                            const byClass = document.querySelector('.altauth2-loading');
+                                                            if (byId) byId.remove();
+                                                            if (byClass) byClass.remove();
+                                                        }
+                                                        removeOnce();
+                                                        const mo = new MutationObserver(removeOnce);
+                                                        mo.observe(document.documentElement, { childList: true, subtree: true });
+                                                        // stop observing after a short while
+                                                        setTimeout(() => mo.disconnect(), 5000);
+                                                    })();
+                                                </script>
         </style>
         <link rel='stylesheet' id='wp-components-css' href='https://gofamilychurch.org/wp-includes/css/dist/components/style.min.css?ver=6.8.3' type='text/css' media='all'/>
         <link rel='stylesheet' id='wp-preferences-css' href='https://gofamilychurch.org/wp-includes/css/dist/preferences/style.min.css?ver=6.8.3' type='text/css' media='all'/>
