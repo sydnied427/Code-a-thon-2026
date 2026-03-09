@@ -6,6 +6,318 @@
 <title>Code a thon</title>
 <link rel="stylesheet" href="initial.css">
 </head>
+    <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; }
+
+    nav {
+      background: white;
+      padding: 0 32px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    /* ── Logo ── */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-circle {
+      width: 42px;
+      height: 42px;
+      background: #1a1a1a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: #1a1a1a;
+      text-transform: uppercase;
+    }
+
+    /* ── Right side ── */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    /* Login — lighter, with icon */
+    .nav-login {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      text-decoration: none;
+      color: #999;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .nav-login:hover { color: #1a3a5c; }
+
+    .login-icon {
+      width: 16px;
+      height: 16px;
+      opacity: 0.5;
+    }
+
+    /* Watch, Give, Locations — bold dark navy */
+    .nav-link {
+      text-decoration: none;
+      color: #1a3a5c;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-link:hover { color: #e53e3e; }
+
+    /* Hamburger */
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+      margin-left: 4px;
+    }
+
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: #1a1a1a;
+      border-radius: 2px;
+      display: block;
+    }
+
+    /* ─── OVERLAY ─── */
+    .menu-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 999;
+    }
+
+    .menu-overlay.open { display: block; }
+
+    /* ─── SLIDE-OUT MENU ─── */
+    .slide-menu {
+      position: fixed;
+      top: 0;
+      right: -320px;
+      width: 300px;
+      height: 100%;
+      background: white;
+      z-index: 1001;
+      transition: right 0.3s ease;
+      overflow-y: auto;
+      padding: 24px 0;
+    }
+
+    .slide-menu.open { right: 0; }
+
+    .menu-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px 20px;
+      border-bottom: 1px solid #e2e8f0;
+      margin-bottom: 12px;
+    }
+
+    .menu-header img { height: 32px; }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #718096;
+    }
+
+    .close-btn:hover { color: #1a202c; }
+
+    .menu-search {
+      padding: 12px 20px;
+      border-bottom: 1px solid #e2e8f0;
+      margin-bottom: 8px;
+    }
+
+    .menu-search input {
+      width: 100%;
+      padding: 9px 14px;
+      border: 1px solid #cbd5e0;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .menu-search input:focus { border-color: #1a3a5c; }
+
+    .menu-nav { list-style: none; }
+
+    .menu-nav > li > a,
+    .menu-nav > li > button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 14px 20px;
+      text-decoration: none;
+      color: #1a202c;
+      font-size: 0.95rem;
+      font-weight: 500;
+      background: none;
+      border: none;
+      border-bottom: 1px solid #f0f0f0;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .menu-nav > li > a:hover,
+    .menu-nav > li > button:hover { background: #f7fafc; color: #1a3a5c; }
+
+    .menu-nav > li > button::after { content: '›'; font-size: 1.2rem; color: #a0aec0; }
+
+    .submenu {
+      display: none;
+      background: #f7fafc;
+      list-style: none;
+    }
+
+    .submenu.open { display: block; }
+
+    .submenu li a {
+      display: block;
+      padding: 11px 36px;
+      text-decoration: none;
+      color: #4a5568;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #edf2f7;
+    }
+
+    .submenu li a:hover { color: #1a3a5c; background: #edf2f7; }
+  </style>
+</head>
+<body>
+
+  <div class="menu-overlay" id="overlay" onclick="closeMenu()"></div>
+
+  <div class="slide-menu" id="slideMenu">
+    <div class="menu-header">
+      <img src="https://cdn.gofamilychurch.org/wp-content/uploads/2021/05/FC-Lockups-B_Campus-HOR-LU-1.png" alt="FC Logo">
+      <button class="close-btn" onclick="closeMenu()">✕</button>
+    </div>
+
+    <div class="menu-search">
+      <input type="text" placeholder="Search...">
+    </div>
+
+    <ul class="menu-nav">
+      <li><a href="https://gofamilychurch.org/our-locations/">Locations</a></li>
+
+      <li>
+        <button onclick="toggleSub('about')">About</button>
+        <ul class="submenu" id="about">
+          <li><a href="https://gofamilychurch.org/about/">About</a></li>
+          <li><a href="https://gofamilychurch.org/careers/">Careers</a></li>
+          <li><a href="https://gofamilychurch.org/family-home/">Part of FC</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <button onclick="toggleSub('resources')">Resources</button>
+        <ul class="submenu" id="resources">
+          <li><a href="https://gofamilychurch.org/resources/">Resources</a></li>
+          <li><a href="https://gofamilychurch.org/messages/">Messages</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <button onclick="toggleSub('nextstep')">Your Next Step</button>
+        <ul class="submenu" id="nextstep">
+          <li><a href="https://www.gofamilychurch.org/next-steps/">Ready?</a></li>
+          <li><a href="https://gofamilychurch.org/events/">Events</a></li>
+          <li><a href="https://gofamilychurch.org/groups/">Groups</a></li>
+          <li><a href="https://gofamilychurch.org/serve-your-church/">Serve</a></li>
+          <li><a href="https://relentlesspursuit.gofamilychurch.org/">Relentless Pursuit</a></li>
+        </ul>
+      </li>
+
+      <li><a href="https://gofamilychurch.org/give/">Give</a></li>
+      <li><a href="https://live.gofamilychurch.org/">Watch</a></li>
+    </ul>
+  </div>
+
+  <!-- ─── NAVBAR ─── -->
+  <nav>
+    <!-- Logo left -->
+    <a class="logo" href="/">
+      <div class="logo-circle">FC</div>
+      <span class="logo-text">Family Church</span>
+    </a>
+
+    <!-- Everything right -->
+    <div class="nav-right">
+      <a class="nav-login" href="#">
+        <svg class="login-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        Login
+      </a>
+      <a class="nav-link" href="https://live.gofamilychurch.org/">Watch</a>
+      <a class="nav-link" href="https://gofamilychurch.org/give/">Give</a>
+      <a class="nav-link" href="https://gofamilychurch.org/our-locations/">Locations</a>
+      <button class="hamburger" onclick="openMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <script>
+    function openMenu() {
+      document.getElementById('slideMenu').classList.add('open');
+      document.getElementById('overlay').classList.add('open');
+    }
+
+    function closeMenu() {
+      document.getElementById('slideMenu').classList.remove('open');
+      document.getElementById('overlay').classList.remove('open');
+    }
+
+    function toggleSub(id) {
+      document.getElementById(id).classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
 
 <body>
 
