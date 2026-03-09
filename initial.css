@@ -24,6 +24,97 @@ main {
   padding-top: 10vh;
 }
 
+.info {
+  margin: 4rem auto;
+  max-width: 920px;
+  min-height: 320px;
+  position: relative;
+  overflow: hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:20px;
+}
+
+.info-track{
+  position: relative;
+  width: 100%;
+  max-width: 1400px;   /* was 900px */
+  margin: auto;
+}
+
+.info-card{
+  display: none;
+  align-items: center;
+  gap: 40px;
+
+  background: #eee;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.info-card.active{
+  display: flex;
+}
+
+.card-image{
+  flex: 0 0 50%;
+  height: 420px;   /* was 250px */
+}
+
+.card-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-text{
+  flex: 1;
+  padding: 50px;   /* was 30px */
+}
+
+.card-text h3{
+  font-size: 2rem;
+}
+
+.card-text p{
+  font-size: 1.2rem;
+}
+
+.info-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3.2rem;
+  height: 3.2rem;
+  border: none;
+  border-radius: 999px;
+  background: rgba(18, 18, 18, 0.7);
+  color: #f1f1f1;
+  font-size: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, background 0.2s ease;
+  z-index: 5;
+}
+
+.info-nav:hover {
+  background: rgba(18, 18, 18, 0.9);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.info-nav.prev {
+  left: 1.2rem;
+}
+
+.info-nav.next {
+  right: 1.2rem;
+}
+
 .title {
   text-align: center;
   position: sticky;
@@ -42,22 +133,25 @@ body h1 {
 
 .box {
   margin: 4rem auto;
-  padding: 2rem 2.5rem 6rem;
+  padding: 2.5rem 2.5rem 6rem;
   max-width: 920px;
-  background: rgba(248, 246, 241, 0.95);
+  background: rgba(24, 24, 24, 0.92);
   border-radius: 2rem;
-  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.35);
+  color: #f6f5f1;
 }
 
 .box h3 {
   margin-top: 0;
   font-size: 2.5rem;
+  color: #f6f5f1;
 }
 
 .box p {
   font-size: 1.25rem;
   line-height: 1.5;
   margin-top: 1rem;
+  color: #f1f1ee;
 }
 
 .title {
@@ -94,7 +188,6 @@ body h2 {
     text-shadow: 0px 0px 10px black;
     margin-top: 5vh;
     font-family: 'Bangers', cursive;
-    background: #d1d9e0;
-    color: #262624;
+    background: #262624;
 }
 
