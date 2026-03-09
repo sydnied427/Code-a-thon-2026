@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Block Party 2025 — Middle School Registration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #fff9f0;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Wobbly hero banner ── */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 0;
+    }
+    .hero {
+      background: url('kids.png') center center / cover no-repeat;
+      padding: 60px 20px 100px;
+      text-align: center;
+      position: relative;
+      clip-path: ellipse(110% 100% at 50% 0%);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #fff;
+      color: #ff6b6b;
+      font-family: 'Fredoka One', cursive;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+
+    .hero h1 {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(42px, 8vw, 72px);
+      color: #fff;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 span { color: #ffe566; text-shadow: 2px 2px 6px rgba(0,0,0,0.8); }
+
+    .hero p {
+      font-size: 18px;
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+
+    /* ── Info pills ── */
+    .info-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      padding: 32px 20px 8px;
+    }
+
+    .pill {
+      background: #fff;
+      border: 3px solid #feca57;
+      border-radius: 999px;
+      padding: 10px 22px;
+      font-size: 15px;
+      font-weight: 800;
+      color: #2d3436;
+      box-shadow: 4px 4px 0 #feca57;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ── Form card ── */
+    .form-wrap {
+      max-width: 600px;
+      margin: 16px auto 60px;
+      padding: 0 20px;
+    }
+
+    .form-card {
+      background: #fff;
+      border-radius: 28px;
+      border: 3px solid #2d3436;
+      box-shadow: 8px 8px 0 #feca57, 12px 12px 0 #ff6b6b;
+      padding: 40px 36px;
+    }
+
+    .form-card h2 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 28px;
+      color: #2d3436;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .field {
+      margin-bottom: 20px;
+    }
+
+    .field label {
+      display: block;
+      font-weight: 800;
+      font-size: 14px;
+      color: #2d3436;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2.5px solid #dfe6e9;
+      border-radius: 14px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #2d3436;
+      background: #f8f9fa;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      appearance: none;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: #ff6b6b;
+      box-shadow: 0 0 0 4px rgba(255,107,107,0.15);
+      background: #fff;
+    }
+
+    .field textarea { resize: vertical; min-height: 80px; }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* Radio group for grade */
+    .grade-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .grade-group label {
+      flex: 1;
+      min-width: 80px;
+      cursor: pointer;
+    }
+
+    .grade-group input[type="radio"] { display: none; }
+
+    .grade-btn {
+      display: block;
+      text-align: center;
+      padding: 12px 8px;
+      border: 2.5px solid #dfe6e9;
+      border-radius: 12px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 17px;
+      color: #636e72;
+      background: #f8f9fa;
+      transition: all 0.15s ease;
+    }
+
+    .grade-group input[type="radio"]:checked + .grade-btn {
+      background: #ff6b6b;
+      border-color: #ff6b6b;
+      color: #fff;
+      box-shadow: 4px 4px 0 #2d3436;
+      transform: translate(-2px, -2px);
+    }
+
+    .grade-group label:hover .grade-btn {
+      border-color: #ff6b6b;
+      color: #ff6b6b;
+    }
+
+    /* Shirt size */
+    .size-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .size-group label { cursor: pointer; }
+    .size-group input[type="radio"] { display: none; }
+
+    .size-btn {
+      display: block;
+      padding: 10px 18px;
+      border: 2.5px solid #dfe6e9;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 14px;
+      color: #636e72;
+      background: #f8f9fa;
+      transition: all 0.15s ease;
+    }
+
+    .size-group input[type="radio"]:checked + .size-btn {
+      background: #48dbfb;
+      border-color: #48dbfb;
+      color: #2d3436;
+      box-shadow: 3px 3px 0 #2d3436;
+      transform: translate(-1px, -1px);
+    }
+
+    /* Divider */
+    .divider {
+      border: none;
+      border-top: 2.5px dashed #dfe6e9;
+      margin: 28px 0;
+    }
+
+    /* Checkbox */
+    .check-field {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .check-field input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      accent-color: #ff6b6b;
+      cursor: pointer;
+      margin-top: 2px;
+    }
+
+    .check-field span {
+      font-size: 14px;
+      font-weight: 600;
+      color: #636e72;
+      line-height: 1.5;
+    }
+
+    /* Submit button */
+    .submit-btn {
+      width: 100%;
+      padding: 18px;
+      background: #ff6b6b;
+      color: #fff;
+      border: 3px solid #2d3436;
+      border-radius: 16px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 5px 5px 0 #2d3436;
+      transition: all 0.15s ease;
+      letter-spacing: 1px;
+    }
+
+    .submit-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 7px 7px 0 #2d3436;
+    }
+
+    .submit-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 #2d3436;
+    }
+
+    .price-note {
+      text-align: center;
+      margin-top: 14px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #636e72;
+    }
+
+    .price-note strong { color: #ff6b6b; font-size: 15px; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+      color: #b2bec3;
+      font-weight: 600;
+    }
+
+    @media (max-width: 480px) {
+      .field-row { grid-template-columns: 1fr; }
+      .form-card { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div style="position:relative;z-index:2;">
+      <div class="hero-badge">Family Church Students</div>
+      <h1>Block Party<br><span>2025</span> 🎊</h1>
+      <p>📅 October 18 &nbsp;·&nbsp; 9:00am – 3:00pm</p>
+      <p>6th – 8th Grade</p>
+    </div>
+  </div>
+
+  <!-- Info pills -->
+  <div class="info-pills">
+    <div class="pill">📍 Family Church Campus</div>
+    <div class="pill">🎟️ $20 Registration</div>
+    <div class="pill">🕘 9:00am – 3:00pm</div>
+  </div>
+
+  <!-- Registration form -->
+  <div class="form-wrap">
+    <div class="form-card">
+
+      <h2>👤 Student Info</h2>
+
+      <div class="field-row">
+        <div class="field">
+          <label>First Name</label>
+          <input type="text" placeholder="e.g. Jordan">
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input type="text" placeholder="e.g. Smith">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Grade</label>
+        <div class="grade-group">
+          <label><input type="radio" name="grade" value="6"><span class="grade-btn">6th</span></label>
+          <label><input type="radio" name="grade" value="7"><span class="grade-btn">7th</span></label>
+          <label><input type="radio" name="grade" value="8"><span class="grade-btn">8th</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Date of Birth</label>
+        <input type="date">
+      </div>
+
+      <div class="field">
+        <label>T-Shirt Size</label>
+        <div class="size-group">
+          <label><input type="radio" name="shirt" value="YS"> <span class="size-btn">YS</span></label>
+          <label><input type="radio" name="shirt" value="YM"> <span class="size-btn">YM</span></label>
+          <label><input type="radio" name="shirt" value="YL"> <span class="size-btn">YL</span></label>
+          <label><input type="radio" name="shirt" value="AS"> <span class="size-btn">AS</span></label>
+          <label><input type="radio" name="shirt" value="AM"> <span class="size-btn">AM</span></label>
+          <label><input type="radio" name="shirt" value="AL"> <span class="size-btn">AL</span></label>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <h2>📞 Parent / Guardian</h2>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Parent First Name</label>
+          <input type="text" placeholder="e.g. Chris">
+        </div>
+        <div class="field">
+          <label>Parent Last Name</label>
+          <input type="text" placeholder="e.g. Smith">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Parent Email</label>
+        <input type="email" placeholder="parent@email.com">
+      </div>
+
+      <div class="field">
+        <label>Parent Phone</label>
+        <input type="tel" placeholder="(555) 000-0000">
+      </div>
+
+      <div class="field">
+        <label>Emergency Contact Phone</label>
+        <input type="tel" placeholder="(555) 000-0000">
+      </div>
+
+      <hr class="divider">
+
+      <h2>🏥 Medical Info</h2>
+
+      <div class="field">
+        <label>Allergies or Medical Notes <span style="font-weight:600;text-transform:none;font-size:12px;color:#b2bec3">(optional)</span></label>
+        <textarea placeholder="List any allergies, medications, or things we should know..."></textarea>
+      </div>
+
+      <hr class="divider">
+
+      <div class="check-field">
+        <input type="checkbox" id="waiver">
+        <span>I give permission for my student to attend Block Party 2025 and agree to the <strong>liability waiver</strong>. I understand photos may be taken during the event.</span>
+      </div>
+
+      <div class="check-field">
+        <input type="checkbox" id="pickup">
+        <span>My student has permission to be released to the guardian who dropped them off.</span>
+      </div>
+
+      <button class="submit-btn">🎉 Register Now!</button>
+      <p class="price-note">Registration fee: <strong>$20</strong> — collected at check-in</p>
+
+    </div>
+  </div>
+
+  <footer>© 2025 Family Church · <a href="test.html" style="color:#ff6b6b;text-decoration:none;font-weight:800;">Back to Block Party</a></footer>
+
+</body>
+</html>
