@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Block Party 2025 — High School Registration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0f2d5e;
+      --blue:   #1a6fc4;
+      --sky:    #dbeafe;
+      --gold:   #b8860b;
+      --gold-light: #fef3c7;
+      --bg:     #f0f4fb;
+      --white:  #ffffff;
+      --border: #c8d9f0;
+      --text:   #0f2d5e;
+      --muted:  #5a7a9a;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      background: url('splatterball.png') center center / cover no-repeat;
+      padding: 70px 20px 80px;
+      text-align: center;
+      overflow: hidden;
+      clip-path: ellipse(120% 100% at 50% 0%);
+    }
+
+    /* Dark overlay so text stays readable */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 25, 50, 0.58);
+      z-index: 0;
+    }
+
+    /* Gold shimmer bar at bottom */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 10%; right: 10%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), #f9d423, var(--gold), transparent);
+      border-radius: 999px;
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    /* CSS cross */
+    .hero-cross {
+      width: 28px;
+      height: 28px;
+      margin: 0 auto 18px;
+      position: relative;
+      opacity: 0.75;
+    }
+    .hero-cross::before,
+    .hero-cross::after {
+      content: '';
+      position: absolute;
+      background: #f9d423;
+      border-radius: 2px;
+    }
+    .hero-cross::before { width: 4px; height: 100%; left: 50%; transform: translateX(-50%); }
+    .hero-cross::after  { width: 100%; height: 4px; top: 32%; }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #f9d423;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(64px, 13vw, 120px);
+      line-height: 0.88;
+      letter-spacing: 3px;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      display: block;
+      color: #f9d423;
+    }
+
+    .hero-verse {
+      font-size: 13px;
+      font-style: italic;
+      color: rgba(255,255,255,0.65);
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-meta div {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .hero-meta div span {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 5px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── Stats bar ── */
+    .stats-bar {
+      display: flex;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 12px rgba(15,45,94,0.07);
+    }
+
+    .stat {
+      flex: 1;
+      padding: 20px 12px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+      font-family: 'Bebas Neue', cursive;
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat-num {
+      font-size: 32px;
+      color: var(--blue);
+      display: block;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    /* ── Form ── */
+    .form-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 16px rgba(15,45,94,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Blue top accent line */
+    .form-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 24px; right: 24px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue), #60a5fa);
+      border-radius: 0 0 4px 4px;
+    }
+
+    .field { margin-bottom: 20px; }
+    .field:last-child { margin-bottom: 0; }
+
+    .field label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 13px 16px;
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+      appearance: none;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder { color: #b0c4d8; }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--blue);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(26,111,196,0.12);
+    }
+
+    .field select option { background: #fff; color: var(--text); }
+    .field textarea { resize: vertical; min-height: 90px; }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* Toggle buttons */
+    .toggle-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .toggle-group input[type="radio"] { display: none; }
+
+    .toggle-btn {
+      display: block;
+      padding: 10px 20px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: var(--bg);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .toggle-group label:hover .toggle-btn {
+      border-color: var(--blue);
+      color: var(--blue);
+      background: var(--sky);
+    }
+
+    .toggle-group input[type="radio"]:checked + .toggle-btn {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+      box-shadow: 0 3px 10px rgba(15,45,94,0.25);
+    }
+
+    /* Checkbox */
+    .check-field {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .check-field input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      accent-color: var(--blue);
+      cursor: pointer;
+      margin-top: 3px;
+    }
+
+    .check-field span {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .check-field span a { color: var(--blue); text-decoration: none; }
+    .check-field span a:hover { text-decoration: underline; }
+
+    /* Submit */
+    .submit-btn {
+      width: 100%;
+      padding: 20px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Bebas Neue', cursive;
+      font-size: 24px;
+      letter-spacing: 3px;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(15,45,94,0.3);
+      transition: box-shadow 0.2s, transform 0.1s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .submit-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+    }
+
+    .submit-btn:hover::after { transform: translateX(100%); }
+    .submit-btn:hover { box-shadow: 0 8px 32px rgba(15,45,94,0.4); transform: translateY(-2px); }
+    .submit-btn:active { transform: scale(0.99); box-shadow: 0 3px 12px rgba(15,45,94,0.3); }
+
+    .price-note {
+      text-align: center;
+      margin-top: 14px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .price-note strong { color: var(--gold); }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 24px 20px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    footer a { color: var(--blue); text-decoration: none; }
+    footer a:hover { color: var(--navy); text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      .field-row { grid-template-columns: 1fr; }
+      .stats-bar { flex-wrap: wrap; }
+      .stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .form-card { padding: 24px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-cross"></div>
+      <p class="hero-eyebrow">Family Church Students &mdash; High School</p>
+      <h1>Block<em>Party</em></h1>
+      <p class="hero-verse">"I can do all things through Christ who strengthens me." &mdash; Phil. 4:13</p>
+      <div class="hero-meta">
+        <div>Date <span>October 18, 2025</span></div>
+        <div>Session <span>3:00pm &ndash; 9:00pm</span></div>
+        <div>Grades <span>9th &ndash; 12th</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stat">
+      <span class="stat-num">6hrs</span>
+      <span class="stat-label">Of Events</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">$20</span>
+      <span class="stat-label">To Register</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">1 Night</span>
+      <span class="stat-label">One Purpose</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">All In</span>
+      <span class="stat-label">Show Up</span>
+    </div>
+  </div>
+
+  <div class="form-wrap">
+
+    <p class="section-label">Student Info</p>
+    <div class="form-card">
+      <div class="field-row">
+        <div class="field">
+          <label>First Name</label>
+          <input type="text" placeholder="First">
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input type="text" placeholder="Last">
+        </div>
+      </div>
+      <div class="field">
+        <label>Grade</label>
+        <div class="toggle-group">
+          <label><input type="radio" name="grade" value="9"> <span class="toggle-btn">9th</span></label>
+          <label><input type="radio" name="grade" value="10"><span class="toggle-btn">10th</span></label>
+          <label><input type="radio" name="grade" value="11"><span class="toggle-btn">11th</span></label>
+          <label><input type="radio" name="grade" value="12"><span class="toggle-btn">12th</span></label>
+        </div>
+      </div>
+      <div class="field">
+        <label>Date of Birth</label>
+        <input type="date">
+      </div>
+      <div class="field">
+        <label>T-Shirt Size</label>
+        <div class="toggle-group">
+          <label><input type="radio" name="shirt" value="S">  <span class="toggle-btn">S</span></label>
+          <label><input type="radio" name="shirt" value="M">  <span class="toggle-btn">M</span></label>
+          <label><input type="radio" name="shirt" value="L">  <span class="toggle-btn">L</span></label>
+          <label><input type="radio" name="shirt" value="XL"> <span class="toggle-btn">XL</span></label>
+          <label><input type="radio" name="shirt" value="XXL"><span class="toggle-btn">XXL</span></label>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-label">Parent / Guardian</p>
+    <div class="form-card">
+      <div class="field-row">
+        <div class="field">
+          <label>Parent First Name</label>
+          <input type="text" placeholder="First">
+        </div>
+        <div class="field">
+          <label>Parent Last Name</label>
+          <input type="text" placeholder="Last">
+        </div>
+      </div>
+      <div class="field">
+        <label>Parent Email</label>
+        <input type="email" placeholder="email@example.com">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Parent Phone</label>
+          <input type="tel" placeholder="(555) 000-0000">
+        </div>
+        <div class="field">
+          <label>Emergency Contact</label>
+          <input type="tel" placeholder="(555) 000-0000">
+        </div>
+      </div>
+    </div>
+
+    <p class="section-label">Medical</p>
+    <div class="form-card">
+      <div class="field">
+        <label>Allergies / Medical Notes <span style="letter-spacing:0;text-transform:none;font-size:11px">&mdash; optional</span></label>
+        <textarea placeholder="Any allergies, medications, or conditions we should know about..."></textarea>
+      </div>
+    </div>
+
+    <p class="section-label">Confirm</p>
+    <div class="form-card">
+      <div class="check-field">
+        <input type="checkbox" id="waiver">
+        <span>I give permission for my student to attend Block Party 2025 and agree to the <a href="#">liability waiver</a>. I understand photos may be taken during the event.</span>
+      </div>
+      <div class="check-field">
+        <input type="checkbox" id="pickup">
+        <span>My student has permission to be released to the guardian who dropped them off at the end of the session.</span>
+      </div>
+    </div>
+
+    <button class="submit-btn">Register Now</button>
+    <p class="price-note">Registration fee: <strong>$20</strong> &mdash; collected at check-in</p>
+
+  </div>
+
+  <footer>
+    &copy; 2025 Family Church &nbsp;&mdash;&nbsp;
+    <a href="Code-a-thon-2026/test.html">Back to Block Party</a>
+    &nbsp;&mdash;&nbsp;
+    <a href="register_middle.html">Middle School Registration</a>
+  </footer>
+
+</body>
+</html>
