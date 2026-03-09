@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Press+Start+2P&display=swap");
+
+body {
+  background-image: url("bg.png"), linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-blend-mode: darken; /* or multiply */
+  font-family: 'Bungee', cursive;
+  color:black;
+  margin: 0;
+}
+
+main {
+  min-height: 200vh;
+}
+
+.hero {
+  min-height: 120vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 10vh;
+}
+
+.title {
+  text-align: center;
+  position: sticky;
+  top: 10vh;
+  z-index: 2;
+  width: min(85vw, 920px);
+}
+
+body h1 {
+    font-size: 9em;
+    color: #d1d9e0;
+    text-shadow: 0px 0px 10px black;
+    margin-top: 15vh;
+    font-family: 'Bangers', cursive;
+}
+
+.box {
+  margin: 4rem auto;
+  padding: 2rem 2.5rem 6rem;
+  max-width: 920px;
+  background: rgba(248, 246, 241, 0.95);
+  border-radius: 2rem;
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.25);
+}
+
+.box h3 {
+  margin-top: 0;
+  font-size: 2.5rem;
+}
+
+.box p {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-top: 1rem;
+}
+
+.title {
+  text-align: center;
+}
+
+.title span {
+  display: inline-block;
+}
+
+/* Alternate per-letter colors (red/yellow/blue repeating) */
+.title span:nth-child(3n+1) { color: #e23c49; }
+.title span:nth-child(3n+2) { color: #f3c03c; }
+.title span:nth-child(3n)   { color: #37c8d0; }
+
+body h1 {
+    font-size: clamp(5rem, 10vw, 9em);
+    color: #d1d9e0;
+    text-shadow: 0px 0px 10px black;
+    margin-top: clamp(10vh, 12vh, 15vh);
+    font-family: 'Bangers', cursive;
+}
+
+body h2 {
+    font-size: clamp(1.8rem, 5vw, 3em);
+    color: #d1d9e0;
+    text-shadow: 0px 0px 10px black;
+    margin-top: 5vh;
+}
+
+.content {
+    font-size: 1.5em;
+    color: #d1d9e0;
+    text-shadow: 0px 0px 10px black;
+    margin-top: 5vh;
+    font-family: 'Bangers', cursive;
+    background: #d1d9e0;
+    color: #262624;
+}
+
