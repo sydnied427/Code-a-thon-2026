@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" data-environment="PRODUCTION" data-release="1.1.1.1" data-version="20260226.1">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Block Party 2026 Registration</title>
+  <link rel="stylesheet" href="./Go_files/font-awesome.min.css" type="text/css" media="screen">
+  <style>
+    /* minimal styling (kept small for example) */
+.error-text {
+  color: #c00;
+  font-weight: 600;
+}
+    body { font-family: Arial, Helvetica, sans-serif; margin: 16px; color:#222; background:#fff; }
+.alpha-slider {
+  display: none !important;
+}
+.check-row {
+  margin-top: 6px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+
+.radio-option input[type="radio"] {
+  margin: 0;
+}
+    header .container { display:flex; align-items:center; justify-content:space-between; }
+    img { height:50px; }
+    .container { max-width: 980px; margin: 0 auto; }
+    h1 { margin: 8px 0 14px 0; font-size: 28px; }
+    .reg-container { background:#fafafa; padding:16px; border-radius:6px; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+    .form-row { margin-bottom:14px; }
+    label { display:block; font-weight:600; margin-bottom:6px; }
+    .input-group .text, .select { width:100%; padding:8px; box-sizing:border-box; }
+    .select-group { position:relative; }
+    /* Country autocomplete styles (copied from earlier) */
+    .country-autocomplete { position: relative; display:flex; gap:8px; align-items:stretch; }
+    #country-input { flex:1; padding:8px; box-sizing:border-box; font-size:14px; }
+    .country-list { position:absolute; top:calc(100% + 6px); left:0; right:44px; max-height:220px; overflow-y:auto; border:1px solid #ddd; background:#fff; z-index:50; box-shadow:0 2px 6px rgba(0,0,0,0.12); display:none; }
+    .country-item { padding:8px 10px; cursor:pointer; }
+    .country-item:hover { background:#f2f2f2; }
+    .country-item.match { font-weight:600; }
+    .alpha-slider { width:36px; margin-left:6px; display:flex; flex-direction:column; align-items:center; gap:2px; font-size:12px; user-select:none; }
+    .alpha-letter { padding:2px 4px; cursor:pointer; border-radius:4px; }
+    .alpha-letter:hover { background:#eee; }
+    .alpha-letter.active { background:#ddd; font-weight:700; }
+    .country-autocomplete-wrapper{position:relative;}
+    .country-item[tabindex] { outline: none; }
+    .submit-row { margin-top:18px; }
+    .btn { display:inline-block; padding:8px 12px; border-radius:6px; text-decoration:none; background:#0077cc; color:#fff; }
+  </style>
+</head>
+<body class="public-outreach public-minimal theme-nautical">
+  <header id="header">
+    <div class="container">
+      <div style="display:flex;align-items:center;">
+        <img src="familychurch-logo.png" alt="Family Church">
+      </div>
+      <a class="btn btn-back btn-accent" href="https://gofamilychurch.org/block-party/">
+        <i class="fa fa-caret-left"></i> Back
+      </a>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="reg-container">
+      <div class="trip-info">
+        <div class="trip-name"><h1>Block Party 2026 Registration</h1></div>
+        <div class="trip-details" style="display:flex;gap:18px;margin-bottom:12px;">
+          <div><h6>Destination</h6><h5>Family Church DownTown</h5></div>
+          <div><h6>Dates of Event</h6><h5>October 5, 2026</h5></div>
+          <div><h6>Total Cost</h6><h5>$20</h5></div>
+        </div>
+      </div>
+
+      <form id="frmApplication" name="frmApplication" novalidate>
+        <p class="disclaimer">As you answer questions in the application, the answers will be saved. You can always return later to finish the application if you are unable to complete it now.</p>
+
+        <div class="form-row">
+          <label>Legal Name <span class="error-text">*</span> </label>
+          <div style="display:flex;gap:8px;">
+            <input class="text" type="text" id="first-name" name="FirstName" placeholder="First Name" required>
+            <input class="text" type="text" id="middle-name" name="MiddleName" placeholder="Middle">
+            <input class="text" type="text" id="last-name" name="LastName" placeholder="Last Name" required>
+          </div>
+        </div>
+
+        <div class="form-row three-even clearfix">
+          <div class="input-group">
+            <label for="phone">Cell Phone</label>
+            <input class="text" type="text" id="phone" name="CellPhone" value="">
+          </div>
+          <div class="input-group">
+            <label for="birthdate">Birthdate <span class="error-text">*</span></label>
+            <input class="text" id="birthdate" name="DateOfBirth" maxlength="20" pattern="([0-9]){2}/([0-9]){2}/([0-9]){4}" placeholder="MM/DD/YYYY">
+          </div>
+          <div class="input-group checkboxes">
+  <label>Gender <span class="error-text">*</span></label>
+
+  <div class="check-row">
+    <label class="radio-option">
+      <input type="radio" name="Gender" value="F" required>
+      Female
+    </label>
+
+    <label class="radio-option">
+      <input type="radio" name="Gender" value="M">
+      Male
+    </label>
+  </div>
+</div>
+        </div>
+
+        <!-- Address section with the country select -->
+        <div class="section-header"><h3>Address</h3></div>
+        <div class="form-row">
+          <label for="Line1">Street Address</label>
+          <div class="input-group">
+            <input class="text" type="text" id="Line1" name="Line1" placeholder="Street address">
+            <input class="text" type="text" id="Line2" name="Line2" placeholder="Apt / Unit (optional)">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="country">Country</label>
+          <div class="select-group">
+            <!-- This select must exist for the autocomplete script.
+                 It has fallback options so this page works standalone.
+                 If you also place a countries.html file next to this page,
+                 the script will fetch it and replace these options. -->
+            <select id="country" name="Country" class="select">
+              <option value="">Select a country...</option>
+              <option value="US">United States</option>
+              <option value="CA">Canada</option>
+              <option value="GB">United Kingdom</option>
+              <option value="AU">Australia</option>
+              <option value="DE">Germany</option>
+              <option value="FR">France</option>
+              <option value="ES">Spain</option>
+              <option value="IT">Italy</option>
+              <option value="NL">Netherlands</option>
+              <option value="MX">Mexico</option>
+              <option value="BR">Brazil</option>
+              <option value="IN">India</option>
+              <option value="CN">China</option>
+              <option value="JP">Japan</option>
+              <option value="KR">South Korea</option>
+              <option value="ZA">South Africa</option>
+              <option value="NG">Nigeria</option>
+              <option value="AR">Argentina</option>
+              <option value="SE">Sweden</option>
+              <option value="NO">Norway</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row city-state-zip">
+          <div class="input-group">
+            <label for="city">City</label>
+            <input class="text" type="text" id="city" name="City" value="">
+          </div>
+          <div class="input-group">
+            <label for="state">Province/State</label>
+            <input type="text" name="State" class="text" id="state" placeholder="Province/State">
+          </div>
+          <div class="input-group">
+            <label for="zip">Zipcode</label>
+            <input class="text" type="text" id="zip" name="Zip" value="">
+          </div>
+        </div>
+
+        <!-- Example profile questions (kept minimal for this example) -->
+        <div class="form-row">
+          <label for="217874">Parent First Name</label>
+          <input type="text" name="question-217874" id="217874" class="text">
+        </div>
+
+        <div class="form-row">
+          <label for="217875">Parent Last Name</label>
+          <input type="text" name="question-217875" id="217875" class="text">
+        </div>
+
+        <div class="form-row">
+          <label for="217876">Parent Email Address</label>
+          <input type="text" name="question-217876" id="217876" class="text">
+        </div>
+
+        <div class="form-row">
+          <label for="217877">Parent Phone Number</label>
+          <input type="text" name="question-217877" id="217877" class="text">
+        </div>
+
+        <div class="form-row">
+          <label>I/we accept risks</label>
+<p>Understand that some of the associated risks include, but are not limited to sunburn, dehydration, insect bites, sports related injuries, and potentially more serious injuries or drowning resulting from participation in various watersport activities.</p>
+          <label><input type="checkbox" id="questionValue-160222" name="question-217886" value="IWeAccept"> I/We Accept</label>
+        </div>
+
+        <div class="submit-row">
+          <button class="btn btn-banner btn-block" type="submit">Complete Application</button>
+        </div>
+      </form>
+      <div id="back-to-reg" style="margin-top:16px;display:none;">
+        <a id="back-to-reg-link" href="#" class="btn" style="background:#555;">&#8592; Back to Registration Form</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Combined loader + autocomplete script.
+       Behavior:
+       - If ./countries.html exists next to this file, it'll be fetched and injected into #country (replace the select options).
+       - Otherwise, the fallback options remain and autocomplete works with them.
+  -->
+  <script>
+  (function(){
+    // Read ?from= param and wire up the return link + form redirect
+    var params = new URLSearchParams(window.location.search);
+    var from   = params.get('from');
+    var returnMap = {
+      high:   'registerHigh.html',
+      middle: 'register_middle.html',
+      adult:  'adultregistration.html'
+    };
+    var returnPage = returnMap[from];
+    if (returnPage) {
+      var backDiv  = document.getElementById('back-to-reg');
+      var backLink = document.getElementById('back-to-reg-link');
+      backLink.href = returnPage;
+      backDiv.style.display = 'block';
+
+      document.getElementById('frmApplication').addEventListener('submit', function(e){
+        e.preventDefault();
+        window.location.href = returnPage;
+      });
+    }
+  })();
+  </script>
+
+  <script>
+  (function(){
+    var pathToFragment = './countries.html'; // if you want an external full list, place it here
+
+    function loadCountriesFragment(){
+      var sel = document.getElementById('country');
+      if (!sel) {
+        console.warn('Country select (#country) not found. Loader will not run.');
+        return;
+      }
+
+      // If already populated with more than 1 option and not the default "Loading", still allow replacement later
+      fetch(pathToFragment, { cache: 'no-cache' })
+        .then(function(response){
+          if (!response.ok) throw new Error('Failed to fetch ' + pathToFragment + ': ' + response.status);
+          return response.text();
+        })
+        .then(function(html){
+          var trimmed = html.trim();
+          if (trimmed.indexOf('<option') === -1 && trimmed.indexOf('<select') !== -1) {
+            var temp = document.createElement('div');
+            temp.innerHTML = trimmed;
+            var selElem = temp.querySelector('select');
+            if (selElem) sel.innerHTML = selElem.innerHTML;
+            else sel.innerHTML = trimmed;
+          } else {
+            sel.innerHTML = html;
+          }
+          if (!sel.value && sel.options.length) sel.selectedIndex = 0;
+          sel.dispatchEvent(new Event('countriesLoaded', { bubbles: true }));
+          console.log('countries loaded into #' + sel.id);
+        })
+        .catch(function(err){
+          // Fail silently: keep fallback options
+          console.info('countries.html not loaded (this is fine if you prefer fallback list):', err.message);
+          sel.dispatchEvent(new Event('countriesLoaded', { bubbles: true }));
+        });
+    }
+
+    function initCountryAutocomplete(){
+      var originalSelect = document.getElementById('country');
+      if (!originalSelect) {
+        console.warn('Country select (#country) not found — autocomplete not initialized.');
+        return;
+      }
+      if (originalSelect.dataset.autocompleteInit === '1') return;
+      originalSelect.dataset.autocompleteInit = '1';
+      originalSelect.style.display = 'none';
+      var wrapper = originalSelect.closest('.select-group') || originalSelect.parentNode;
+      wrapper.classList.add('country-autocomplete-wrapper');
+
+      var container = document.createElement('div');
+      container.className = 'country-autocomplete';
+
+      var input = document.createElement('input');
+      input.type = 'text';
+      input.id = 'country-input';
+      input.setAttribute('placeholder', 'Type to search countries or use the A→Z slider');
+      input.setAttribute('autocomplete', 'off');
+
+      var list = document.createElement('div');
+      list.className = 'country-list';
+      list.id = 'country-list';
+      list.style.display = 'none';
+
+      var alpha = document.createElement('div');
+      alpha.className = 'alpha-slider';
+      alpha.id = 'alpha-slider';
+      var letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+      letters.forEach(function(L){
+        var span = document.createElement('div');
+        span.className = 'alpha-letter';
+        span.textContent = L;
+        span.dataset.letter = L;
+        alpha.appendChild(span);
+      });
+
+      var options = Array.from(originalSelect.options).map(function(opt){
+        return { text: opt.text.trim(), value: opt.value, labelLower: opt.text.trim().toLowerCase() };
+      });
+
+      function renderList(items, highlightPrefix){
+        list.innerHTML = '';
+        if (!items.length) {
+          var none = document.createElement('div');
+          none.className = 'country-item';
+          none.textContent = 'No matches';
+          none.style.opacity = '0.6';
+          none.tabIndex = -1;
+          list.appendChild(none);
+        } else {
+          items.forEach(function(it){
+            var div = document.createElement('div');
+            div.className = 'country-item';
+            div.textContent = it.text;
+            div.dataset.value = it.value;
+            if (highlightPrefix) {
+              var prefix = highlightPrefix.toLowerCase();
+              if (it.labelLower.indexOf(prefix) === 0) div.classList.add('match');
+            }
+            div.tabIndex = 0;
+            div.addEventListener('click', function(){
+              input.value = it.text;
+              originalSelect.value = it.value;
+              originalSelect.dispatchEvent(new Event('change', { bubbles: true }));
+              hideList();
+            });
+            div.addEventListener('keydown', function(ev){
+              if (ev.key === 'Enter') div.click();
+              else if (ev.key === 'ArrowDown') { var next = div.nextElementSibling; if (next) next.focus(); }
+              else if (ev.key === 'ArrowUp') { var prev = div.previousElementSibling; if (prev) prev.focus(); else input.focus(); }
+            });
+            list.appendChild(div);
+          });
+        }
+      }
+
+      function showList(){ list.style.display = 'block'; }
+      function hideList(){ list.style.display = 'none'; }
+
+      container.appendChild(input);
+      container.appendChild(list);
+      wrapper.appendChild(container);
+      wrapper.appendChild(alpha);
+
+      options.sort(function(a,b){ return a.text.localeCompare(b.text); });
+      renderList(options, '');
+
+      input.addEventListener('input', function(){
+        var q = input.value.trim().toLowerCase();
+        if (!q) { renderList(options, ''); showList(); return; }
+        var prefix = [], contains = [];
+        options.forEach(function(opt){
+          if (opt.labelLower.indexOf(q) === 0) prefix.push(opt);
+          else if (opt.labelLower.indexOf(q) > -1) contains.push(opt);
+        });
+        var combined = prefix.concat(contains);
+        renderList(combined, q);
+        showList();
+      });
+
+      alpha.addEventListener('click', function(e){
+        var letter = e.target && e.target.dataset && e.target.dataset.letter;
+        if (!letter) return;
+        Array.from(alpha.children).forEach(function(ch){ ch.classList.toggle('active', ch.dataset.letter === letter); });
+        var low = letter.toLowerCase();
+        var matches = options.filter(function(o){ return o.labelLower.indexOf(low) === 0; });
+        renderList(matches, letter);
+        showList();
+        list.scrollTop = 0;
+      });
+
+      document.addEventListener('click', function(evt){
+        if (!wrapper.contains(evt.target)) {
+          hideList();
+          Array.from(alpha.children).forEach(function(ch){ ch.classList.remove('active'); });
+        }
+      });
+
+      input.addEventListener('keydown', function(ev){
+        var visible = list.style.display !== 'none';
+        if (ev.key === 'ArrowDown') {
+          ev.preventDefault();
+          if (!visible) { showList(); return; }
+          var first = list.querySelector('.country-item');
+          if (first) first.focus();
+        } else if (ev.key === 'Escape') {
+          hideList();
+        } else if (ev.key === 'Enter') {
+          var q = input.value.trim().toLowerCase();
+          if (q) {
+            var prefix = options.find(function(o){ return o.labelLower.indexOf(q) === 0; });
+            if (prefix) {
+              input.value = prefix.text;
+              originalSelect.value = prefix.value;
+              originalSelect.dispatchEvent(new Event('change', { bubbles: true }));
+              hideList();
+              ev.preventDefault();
+            }
+          }
+        }
+      });
+
+      if (originalSelect.value) {
+        var selOpt = options.find(function(o){ return o.value === originalSelect.value; });
+        if (selOpt) input.value = selOpt.text;
+      }
+
+      originalSelect._countryAutocomplete = { input: input, list: list, alpha: alpha };
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){ loadCountriesFragment(); });
+    document.addEventListener('countriesLoaded', function(){ setTimeout(initCountryAutocomplete, 0); });
+  })();
+  </script>
+</body>
+</html>
