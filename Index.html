@@ -6,10 +6,179 @@
 <title>Code a thon</title>
 <link rel="stylesheet" href="initial.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
-</head>
+  <title>Family Church Footer</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    footer {
+      background: white;
+      padding: 60px 80px 40px;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 50px;
+    }
+
+    /* ── Brand column ── */
+
+    .brand-banner {
+      background: #b2d8c8;
+      border-radius: 6px;
+      padding: 20px 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .fc-circle {
+      width: 46px;
+      height: 46px;
+      background: #1a1a2e;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+
+    .brand-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: white;
+      text-transform: uppercase;
+    }
+
+    .footer-brand p {
+      font-size: 0.92rem;
+      color: #4a5568;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .contact-info p {
+      font-size: 0.92rem;
+      color: #4a5568;
+      margin-bottom: 8px;
+    }
+
+    .contact-info a {
+      color: #1a202c;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .watch-live {
+      display: inline-block;
+      margin-top: 24px;
+      background: #b2d8c8;
+      color: #1a3a5c;
+      padding: 12px 28px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .watch-live:hover { background: #93c5b0; }
+
+    /* ── Link columns ── */
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* Left col — light weight */
+    .footer-col.light ul li a {
+      text-decoration: none;
+      color: #4a5568;
+      font-size: 0.95rem;
+      font-weight: 400;
+    }
+
+    .footer-col.light ul li a:hover { color: #1a3a5c; }
+
+    /* Right col — bold */
+    .footer-col.bold ul li a {
+      text-decoration: none;
+      color: #1a202c;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .footer-col.bold ul li a:hover { color: #1a3a5c; }
+
+    /* ── Bottom ── */
+    .footer-bottom {
+      border-top: 1px solid #e2e8f0;
+      padding-top: 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .social-fb   { background: #1877f2; }
+    .social-x    { background: #000000; }
+    .social-ig   { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+
+    .social-links a:hover { opacity: 0.85; }
+
+    .footer-bottom p {
+      font-size: 0.82rem;
+      color: #a0aec0;
+    }
+
+    .footer-bottom a {
+      color: #1a3a5c;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+
+    .footer-bottom a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      footer { padding: 40px 24px 30px; }
+    }
+
+    @media (max-width: 480px) {
+      .footer-top { grid-template-columns: 1fr; }
+    }
+  </style>
+  </head>
     <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; }
 
     nav {
       background: white;
@@ -363,11 +532,6 @@
     }
   </script>
 
-</body>
-</html>
-
-<body>
-
 <main>
 
 <!-- Add image underneath Title text -->
@@ -718,186 +882,6 @@ setInterval(updateCountdown, 1000);
 
 </script>
 
-</body>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Family Church Footer</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: white; }
-
-    footer {
-      background: white;
-      padding: 60px 80px 40px;
-      border-top: 1px solid #e2e8f0;
-    }
-
-    .footer-top {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
-      gap: 60px;
-      margin-bottom: 50px;
-    }
-
-    /* ── Brand column ── */
-    .footer-brand {}
-
-    .brand-banner {
-      background: #b2d8c8;
-      border-radius: 6px;
-      padding: 20px 28px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 28px;
-    }
-
-    .fc-circle {
-      width: 46px;
-      height: 46px;
-      background: #1a1a2e;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 0.85rem;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-      flex-shrink: 0;
-    }
-
-    .brand-name {
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      color: white;
-      text-transform: uppercase;
-    }
-
-    .footer-brand p {
-      font-size: 0.92rem;
-      color: #4a5568;
-      line-height: 1.7;
-      margin-bottom: 16px;
-    }
-
-    .contact-info p {
-      font-size: 0.92rem;
-      color: #4a5568;
-      margin-bottom: 8px;
-    }
-
-    .contact-info a {
-      color: #1a202c;
-      text-decoration: none;
-      font-weight: 700;
-    }
-
-    .watch-live {
-      display: inline-block;
-      margin-top: 24px;
-      background: #b2d8c8;
-      color: #1a3a5c;
-      padding: 12px 28px;
-      border-radius: 6px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .watch-live:hover { background: #93c5b0; }
-
-    /* ── Link columns ── */
-    .footer-col ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-    }
-
-    /* Left col — light weight */
-    .footer-col.light ul li a {
-      text-decoration: none;
-      color: #4a5568;
-      font-size: 0.95rem;
-      font-weight: 400;
-    }
-
-    .footer-col.light ul li a:hover { color: #1a3a5c; }
-
-    /* Right col — bold */
-    .footer-col.bold ul li a {
-      text-decoration: none;
-      color: #1a202c;
-      font-size: 0.95rem;
-      font-weight: 700;
-    }
-
-    .footer-col.bold ul li a:hover { color: #1a3a5c; }
-
-    /* ── Bottom ── */
-    .footer-bottom {
-      border-top: 1px solid #e2e8f0;
-      padding-top: 36px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 10px;
-    }
-
-    .social-links a {
-      width: 40px;
-      height: 40px;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      color: white;
-      font-size: 1rem;
-      font-weight: 700;
-    }
-
-    .social-fb   { background: #1877f2; }
-    .social-x    { background: #000000; }
-    .social-ig   { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
-
-    .social-links a:hover { opacity: 0.85; }
-
-    .footer-bottom p {
-      font-size: 0.82rem;
-      color: #a0aec0;
-    }
-
-    .footer-bottom a {
-      color: #1a3a5c;
-      text-decoration: none;
-      font-size: 0.88rem;
-      font-weight: 500;
-    }
-
-    .footer-bottom a:hover { text-decoration: underline; }
-
-    @media (max-width: 768px) {
-      .footer-top { grid-template-columns: 1fr 1fr; }
-      footer { padding: 40px 24px 30px; }
-    }
-
-    @media (max-width: 480px) {
-      .footer-top { grid-template-columns: 1fr; }
-    }
-  </style>
-</head>
-<body>
 
 <footer>
   <div class="footer-top">
@@ -953,6 +937,5 @@ setInterval(updateCountdown, 1000);
     <a href="https://www.iubenda.com/privacy-policy/55997428">Privacy Policy</a>
   </div>
 </footer>
-
 </body>
 </html>
