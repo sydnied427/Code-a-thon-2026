@@ -872,9 +872,9 @@ const prevButton = document.querySelector('.prev');
 const nextButton = document.querySelector('.next');
 
 let current = 0;
+let cycleTimer;
 
 function showCard(index) {
-
   infoCards[current].classList.remove('active');
 
   current = (index + infoCards.length) % infoCards.length;
@@ -882,8 +882,28 @@ function showCard(index) {
   infoCards[current].classList.add('active');
 }
 
-prevButton.addEventListener("click", () => showCard(current - 1));
-nextButton.addEventListener("click", () => showCard(current + 1));
+function startCycle() {
+  cycleTimer = setInterval(() => {
+    showCard(current + 1);
+  }, 6000);
+}
+
+function resetCycle() {
+  clearInterval(cycleTimer);
+  startCycle();
+}
+
+prevButton.addEventListener("click", () => {
+  showCard(current - 1);
+  resetCycle();
+});
+
+nextButton.addEventListener("click", () => {
+  showCard(current + 1);
+  resetCycle();
+});
+
+startCycle();
 
 // Countdown
 const eventDate = new Date("October 5, 2026 09:00:00");
