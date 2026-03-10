@@ -414,9 +414,10 @@
   </section>
 
   <!-- Grade switcher -->
-  <div style="display:flex;justify-content:center;gap:0;margin:28px auto 0;max-width:340px;border:3px solid #0f2d5e;border-radius:14px;overflow:hidden;box-shadow:4px 4px 0 #0f2d5e;">
-    <a href="register_middle.html" style="flex:1;text-align:center;padding:12px 0;background:#fff;color:#636e72;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;text-decoration:none;border-right:3px solid #0f2d5e;">6th – 8th Grade</a>
-    <span style="flex:1;text-align:center;padding:12px 0;background:linear-gradient(135deg,#0f2d5e,#1a6fc4);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;">9th – 12th Grade</span>
+  <div style="display:flex;justify-content:center;gap:0;margin:28px auto 0;max-width:480px;border:3px solid #0f2d5e;border-radius:14px;overflow:hidden;box-shadow:4px 4px 0 #0f2d5e;">
+    <a href="register_middle.html" style="flex:1;text-align:center;padding:12px 0;background:#fff;color:#636e72;font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:1px;text-decoration:none;border-right:3px solid #0f2d5e;">6th – 8th</a>
+    <span style="flex:1;text-align:center;padding:12px 0;background:linear-gradient(135deg,#0f2d5e,#1a6fc4);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:1px;">9th – 12th</span>
+    <a href="adultregistration.html" style="flex:1;text-align:center;padding:12px 0;background:#fff;color:#636e72;font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:1px;text-decoration:none;border-left:3px solid #0f2d5e;">Adult Leaders</a>
   </div>
 
   <div class="stats-bar">
@@ -426,7 +427,7 @@
     </div>
     <div class="stat">
       <span class="stat-num">$20</span>
-      <span class="stat-label">To Register</span>
+      <span class="stat-label">Registration</span>
     </div>
     <div class="stat">
       <span class="stat-num">1 Night</span>
@@ -516,19 +517,38 @@
     <p class="section-label">Confirm</p>
     <div class="form-card">
       <div class="check-field">
-        <input type="checkbox" id="waiver">
+        <input type="checkbox" id="waiver" required>
         <span>I give permission for my student to attend Block Party 2025 and agree to the <a href="#">liability waiver</a>. I understand photos may be taken during the event.</span>
       </div>
       <div class="check-field">
-        <input type="checkbox" id="pickup">
+        <input type="checkbox" id="pickup" required>
         <span>My student has permission to be released to the guardian who dropped them off at the end of the session.</span>
       </div>
     </div>
 
-    <button class="submit-btn">Register Now</button>
-    <p class="price-note">Registration fee: <strong>$20</strong> &mdash; collected at check-in</p>
+    <button class="submit-btn" onclick="submitForm(event)">Register Now</button>
+    <p class="price-note">Registration fee: <strong>$20</strong></p>
+    <p id="agree-error" style="display:none;color:#e23c49;text-align:center;font-size:0.95rem;margin-top:8px;">Please check both boxes before submitting.</p>
 
   </div>
+
+  <script>
+    function submitForm(e) {
+      const waiver = document.getElementById('waiver');
+      const pickup = document.getElementById('pickup');
+      const err    = document.getElementById('agree-error');
+      if (!waiver.checked || !pickup.checked) {
+        e.preventDefault();
+        err.style.display = 'block';
+        [waiver, pickup].forEach(cb => {
+          cb.style.outline = cb.checked ? '' : '2px solid #e23c49';
+        });
+      } else {
+        err.style.display = 'none';
+        [waiver, pickup].forEach(cb => cb.style.outline = '');
+      }
+    }
+  </script>
 
   <footer>
     &copy; 2025 Family Church &nbsp;&mdash;&nbsp;
