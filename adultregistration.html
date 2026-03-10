@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Block Party 2026 — Adult Leaders Registration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --deep:   #1a1f3c;
+      --forest: #2d3580;
+      --gold:   #e8b84b;
+      --gold-lt:#fdf8ed;
+      --bg:     #f2f3f8;
+      --white:  #ffffff;
+      --border: #d0d3e8;
+      --text:   #1a1f3c;
+      --muted:  #6b6f8a;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      background: url('Volunteers.jpg') center 40% / cover no-repeat;
+      padding: 90px 20px 100px;
+      text-align: center;
+      clip-path: ellipse(120% 100% at 50% 0%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(15,18,48,0.78) 0%, rgba(15,18,48,0.58) 100%);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 4px;
+      padding: 48px 40px;
+      backdrop-filter: blur(2px);
+    }
+
+    .hero-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(48px, 9vw, 86px);
+      font-weight: 900;
+      line-height: 1;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      display: block;
+      color: var(--gold);
+    }
+
+    .hero-rule {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin: 20px auto;
+      opacity: 0.8;
+    }
+
+    .hero-verse {
+      font-size: 13px;
+      font-style: italic;
+      color: rgba(255,255,255,0.58);
+      font-weight: 500;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 0;
+      justify-content: center;
+      border-top: 1px solid rgba(255,255,255,0.14);
+      padding-top: 22px;
+    }
+
+    .hero-meta div {
+      flex: 1;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.44);
+      border-right: 1px solid rgba(255,255,255,0.12);
+      padding: 0 12px;
+    }
+
+    .hero-meta div:last-child { border-right: none; }
+
+    .hero-meta div span {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      margin-top: 6px;
+      letter-spacing: 0;
+    }
+
+    /* ── Switcher ── */
+    .switcher {
+      display: flex;
+      justify-content: center;
+      margin: 32px auto 0;
+      max-width: 460px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .switcher a, .switcher span {
+      flex: 1;
+      text-align: center;
+      padding: 13px 0;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-right: 1px solid var(--border);
+    }
+
+    .switcher a:last-child, .switcher span:last-child { border-right: none; }
+
+    .switcher a {
+      background: var(--white);
+      color: var(--muted);
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .switcher a:hover { background: var(--bg); color: var(--deep); }
+
+    .switcher .active-tab {
+      background: var(--deep);
+      color: var(--gold);
+    }
+
+    /* ── Info bar ── */
+    .info-bar {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      max-width: 640px;
+      margin: 36px auto 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .info-item {
+      flex: 1;
+      padding: 18px 16px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+
+    .info-item:last-child { border-right: none; }
+
+    .info-icon {
+      font-size: 20px;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .info-val {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--deep);
+      display: block;
+      line-height: 1;
+    }
+
+    .info-lbl {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* ── Form ── */
+    .form-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+    }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--forest);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--forest);
+      border-radius: 8px;
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 12px rgba(26,31,60,0.05);
+    }
+
+    .field { margin-bottom: 20px; }
+    .field:last-child { margin-bottom: 0; }
+
+    .field label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 13px 16px;
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+      appearance: none;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder { color: #b0b3cc; }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--forest);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(45,53,128,0.10);
+    }
+
+    .field select option { background: #fff; color: var(--text); }
+    .field textarea { resize: vertical; min-height: 90px; }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* Toggle buttons */
+    .toggle-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .toggle-group input[type="radio"] { display: none; }
+
+    .toggle-btn {
+      display: block;
+      padding: 9px 18px;
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: var(--bg);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .toggle-group label:hover .toggle-btn {
+      border-color: var(--forest);
+      color: var(--forest);
+      background: #eceef8;
+    }
+
+    .toggle-group input[type="radio"]:checked + .toggle-btn {
+      background: var(--deep);
+      border-color: var(--deep);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(26,31,60,0.25);
+    }
+
+    /* Checkbox */
+    .check-field {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .check-field input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      accent-color: var(--forest);
+      cursor: pointer;
+      margin-top: 3px;
+    }
+
+    .check-field span {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .check-field span a { color: var(--forest); text-decoration: none; }
+    .check-field span a:hover { text-decoration: underline; }
+
+    /* Submit */
+    .submit-btn {
+      width: 100%;
+      padding: 20px;
+      background: var(--deep);
+      color: var(--gold);
+      border: none;
+      border-radius: 8px;
+      font-family: 'Bebas Neue', cursive;
+      font-size: 24px;
+      letter-spacing: 3px;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(26,31,60,0.28);
+      transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+    }
+
+    .submit-btn:hover {
+      background: var(--forest);
+      box-shadow: 0 8px 32px rgba(26,31,60,0.36);
+      transform: translateY(-2px);
+    }
+
+    .submit-btn:active { transform: scale(0.99); }
+
+    .price-note {
+      text-align: center;
+      margin-top: 14px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .price-note strong { color: var(--gold); }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--deep);
+      padding: 24px 20px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 560px) {
+      .hero-content { padding: 32px 20px; }
+      .field-row { grid-template-columns: 1fr; }
+      .info-bar { flex-wrap: wrap; }
+      .info-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .info-item:last-child { border-bottom: none; }
+      .form-card { padding: 24px 18px; }
+      .switcher { max-width: 90%; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Family Church &mdash; Adult Leaders Registration</p>
+      <h1>Block<em>Party</em></h1>
+      <div class="hero-rule"></div>
+      <p class="hero-verse">"Two are better than one, because they have a good return for their labor." &mdash; Ecclesiastes 4:9</p>
+      <div class="hero-meta">
+        <div>Date <span>Oct 5, 2026</span></div>
+        <div>Time <span>9am – 3pm</span></div>
+        <div>Ages <span>18 &amp; Up</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Age switcher -->
+  <div class="switcher">
+    <a href="register_middle.html">6th – 8th</a>
+    <a href="registerHigh.html">9th – 12th</a>
+    <span class="active-tab">Adult Leaders</span>
+  </div>
+
+  <!-- Info bar -->
+  <div class="info-bar">
+    <div class="info-item">
+      <span class="info-val">FC Campus</span>
+      <span class="info-lbl">Location</span>
+    </div>
+    <div class="info-item">
+      <span class="info-val">Free</span>
+      <span class="info-lbl">Registration</span>
+    </div>
+    <div class="info-item">
+      <span class="info-val">6 Hours</span>
+      <span class="info-lbl">Of Events</span>
+    </div>
+    <div class="info-item">
+      <span class="info-val">All In</span>
+      <span class="info-lbl">Show Up</span>
+    </div>
+  </div>
+
+  <div class="form-wrap">
+
+    <p class="section-label">Personal Info</p>
+    <div class="form-card">
+      <div class="field-row">
+        <div class="field">
+          <label>First Name</label>
+          <input type="text" id="first-name" placeholder="First">
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input type="text" id="last-name" placeholder="Last">
+        </div>
+      </div>
+      <div class="field">
+        <label>Email Address</label>
+        <input type="email" id="email" placeholder="you@example.com">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Phone Number</label>
+          <input type="tel" id="phone" placeholder="(555) 000-0000">
+        </div>
+        <div class="field">
+          <label>Date of Birth</label>
+          <input type="date" id="dob">
+        </div>
+      </div>
+      <div class="field">
+        <label>T-Shirt Size</label>
+        <div class="toggle-group">
+          <label><input type="radio" name="shirt" value="S">  <span class="toggle-btn">S</span></label>
+          <label><input type="radio" name="shirt" value="M">  <span class="toggle-btn">M</span></label>
+          <label><input type="radio" name="shirt" value="L">  <span class="toggle-btn">L</span></label>
+          <label><input type="radio" name="shirt" value="XL"> <span class="toggle-btn">XL</span></label>
+          <label><input type="radio" name="shirt" value="XXL"><span class="toggle-btn">XXL</span></label>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-label">Church Connection</p>
+    <div class="form-card">
+      <div class="field">
+        <label>How long have you attended Family Church?</label>
+        <div class="toggle-group">
+          <label><input type="radio" name="tenure" value="new">   <span class="toggle-btn">First Time</span></label>
+          <label><input type="radio" name="tenure" value="1yr">   <span class="toggle-btn">1 – 2 yrs</span></label>
+          <label><input type="radio" name="tenure" value="3yr">   <span class="toggle-btn">3 – 5 yrs</span></label>
+          <label><input type="radio" name="tenure" value="long">  <span class="toggle-btn">5+ yrs</span></label>
+        </div>
+      </div>
+      <div class="field">
+        <label>Interested in Volunteering?</label>
+        <div class="toggle-group">
+          <label><input type="radio" name="volunteer" value="yes">  <span class="toggle-btn">Yes</span></label>
+          <label><input type="radio" name="volunteer" value="no">   <span class="toggle-btn">No</span></label>
+          <label><input type="radio" name="volunteer" value="maybe"><span class="toggle-btn">Maybe</span></label>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-label">Emergency Contact</p>
+    <div class="form-card">
+      <div class="field-row">
+        <div class="field">
+          <label>Contact Name</label>
+          <input type="text" id="contact-name" placeholder="Full Name">
+        </div>
+        <div class="field">
+          <label>Relationship</label>
+          <input type="text" id="relationship" placeholder="Spouse, Friend, etc.">
+        </div>
+      </div>
+      <div class="field">
+        <label>Contact Phone</label>
+        <input type="tel" id="contact-phone" placeholder="(555) 000-0000">
+      </div>
+    </div>
+
+    <p class="section-label">Medical</p>
+    <div class="form-card">
+      <div class="field">
+        <label>Allergies / Medical Notes</label>
+        <textarea id="allergies" placeholder="Any allergies, medications, or conditions we should know about..."></textarea>
+      </div>
+    </div>
+
+    <p class="section-label">Liability Waiver</p>
+    <div class="form-card">
+      <div class="check-field">
+        <input type="checkbox" id="waiver">
+        <span>I acknowledge that photos may be taken during the event and may be used by Family Church.</span>
+      </div>
+      <div class="check-field">
+        <input type="checkbox" id="waiver2">
+        <span>I understand that some of the associated risks include, but are not limited to sunburn, dehydration, insect bites, sports related injuries, and potentially more serious injuries or drowning resulting from participation in various watersport activities.</span>
+      </div>
+      <div class="check-field">
+        <input type="checkbox" id="terms">
+        <span>I confirm the information I have provided is accurate and that I am 18 years of age or older.</span>
+      </div>
+    </div>
+
+    <button class="submit-btn" onclick="submitForm(event)">Register Now</button>
+    <p class="price-note">Registration is <strong>free</strong> for adult volunteers.</p>
+    <p id="agree-error" style="display:none;color:#e23c49;text-align:center;font-size:0.95rem;margin-top:8px;">Please check both boxes before submitting.</p>
+    <div style="text-align:center;margin-top:20px;">
+      <a href="Index.html" style="display:inline-block;padding:12px 28px;border:2px solid var(--forest);border-radius:8px;color:var(--forest);text-decoration:none;font-size:0.9rem;font-weight:700;letter-spacing:0.05em;transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--forest)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='var(--forest)'">&#8592; Back to Home</a>
+    </div>
+
+  </div>
+
+  <footer>
+    &copy; 2026 Family Church &nbsp;&mdash;&nbsp;
+    <a href="Index.html">Back to Block Party</a>
+  </footer>
+
+  <script>
+    function submitForm(e) {
+      const required = ['first-name','last-name','dob','email','phone','contact-name','relationship','contact-phone','allergies'];
+      const waiver  = document.getElementById('waiver');
+      const waiver2 = document.getElementById('waiver2');
+      const terms   = document.getElementById('terms');
+      const err     = document.getElementById('agree-error');
+
+      let valid = true;
+
+      required.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el.value.trim()) {
+          el.style.border = '1.5px solid #e23c49';
+          valid = false;
+        } else {
+          el.style.border = '';
+        }
+      });
+
+      // Validate shirt size radio group
+      const shirtChecked = document.querySelector('input[name="shirt"]:checked');
+      const shirtBtns = document.querySelectorAll('input[name="shirt"] + .toggle-btn');
+      if (!shirtChecked) {
+        shirtBtns.forEach(btn => btn.style.outline = '2px solid #e23c49');
+        valid = false;
+      } else {
+        shirtBtns.forEach(btn => btn.style.outline = '');
+      }
+
+      if (!waiver.checked || !waiver2.checked || !terms.checked) {
+        err.style.display = 'block';
+        [waiver, waiver2, terms].forEach(cb => {
+          cb.style.outline = cb.checked ? '' : '2px solid #e23c49';
+        });
+        valid = false;
+      } else {
+        err.style.display = 'none';
+        [waiver, waiver2, terms].forEach(cb => cb.style.outline = '');
+      }
+
+      if (valid) window.location.href = 'post_registration.html';
+    }
+  </script>
+
+</body>
+</html>

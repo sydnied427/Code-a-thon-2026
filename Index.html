@@ -5,10 +5,180 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Code a thon</title>
 <link rel="stylesheet" href="initial.css">
-</head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
+  <title>Family Church Footer</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    footer {
+      background: white;
+      padding: 60px 80px 40px;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 50px;
+    }
+
+    /* ── Brand column ── */
+
+    .brand-banner {
+      background: #b2d8c8;
+      border-radius: 6px;
+      padding: 20px 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .fc-circle {
+      width: 46px;
+      height: 46px;
+      background: #1a1a2e;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+
+    .brand-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: white;
+      text-transform: uppercase;
+    }
+
+    .footer-brand p {
+      font-size: 0.92rem;
+      color: #4a5568;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .contact-info p {
+      font-size: 0.92rem;
+      color: #4a5568;
+      margin-bottom: 8px;
+    }
+
+    .contact-info a {
+      color: #1a202c;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .watch-live {
+      display: inline-block;
+      margin-top: 24px;
+      background: #b2d8c8;
+      color: #1a3a5c;
+      padding: 12px 28px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .watch-live:hover { background: #93c5b0; }
+
+    /* ── Link columns ── */
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* Left col — light weight */
+    .footer-col.light ul li a {
+      text-decoration: none;
+      color: #4a5568;
+      font-size: 0.95rem;
+      font-weight: 400;
+    }
+
+    .footer-col.light ul li a:hover { color: #1a3a5c; }
+
+    /* Right col — bold */
+    .footer-col.bold ul li a {
+      text-decoration: none;
+      color: #1a202c;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .footer-col.bold ul li a:hover { color: #1a3a5c; }
+
+    /* ── Bottom ── */
+    .footer-bottom {
+      border-top: 1px solid #e2e8f0;
+      padding-top: 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .social-fb   { background: #1877f2; }
+    .social-x    { background: #000000; }
+    .social-ig   { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+
+    .social-links a:hover { opacity: 0.85; }
+
+    .footer-bottom p {
+      font-size: 0.82rem;
+      color: #a0aec0;
+    }
+
+    .footer-bottom a {
+      color: #1a3a5c;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+
+    .footer-bottom a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      footer { padding: 40px 24px 30px; }
+    }
+
+    @media (max-width: 480px) {
+      .footer-top { grid-template-columns: 1fr; }
+    }
+  </style>
+  </head>
     <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; }
 
     nav {
       background: white;
@@ -222,6 +392,52 @@
     }
 
     .submenu li a:hover { color: #1a3a5c; background: #edf2f7; }
+
+    /* ── Countdown ── */
+    .countdown-section {
+      text-align: center;
+      padding: 60px 20px 40px;
+      color: white;
+    }
+
+    .countdown-section h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: white;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      margin-bottom: 32px;
+      letter-spacing: 1px;
+    }
+
+    .countdown-timer {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .countdown-box {
+      background: #181819;
+      border-radius: 12px;
+      padding: 20px 28px;
+      min-width: 90px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+
+    .countdown-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      color: #ffcc00;
+      line-height: 1;
+    }
+
+    .countdown-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.85rem;
+      color: #59cdfe;
+      margin-top: 6px;
+      letter-spacing: 1px;
+    }
   </style>
 </head>
 <body>
@@ -277,7 +493,7 @@
   <!-- ─── NAVBAR ─── -->
   <nav>
     <!-- Logo left -->
-    <a class="logo" href="/">
+    <a class="logo" href="https://gofamilychurch.org/">
       <div class="logo-circle">FC</div>
       <span class="logo-text">Family Church</span>
     </a>
@@ -316,37 +532,245 @@
     }
   </script>
 
-</body>
-</html>
-
-<body>
-
 <main>
 
 <!-- Add image underneath Title text -->
 <section class="hero">
   <div class="title">
     <h1>Block Party!</h1>
-    <h2>The biggest party of the year</h2>
+    <h2>The Biggest Party of the Year</h2>
   </div>
 </section>
 
-
+<!-- Countdown -->
+<div class="countdown-section">
+  <h2>Countdown the days left until the most fun event of the year!</h2>
+  <div class="countdown-timer">
+    <div class="countdown-box">
+      <div class="countdown-number" id="days">00</div>
+      <div class="countdown-label">DAYS</div>
+    </div>
+    <div class="countdown-box">
+      <div class="countdown-number" id="hours">00</div>
+      <div class="countdown-label">HOURS</div>
+    </div>
+    <div class="countdown-box">
+      <div class="countdown-number" id="minutes">00</div>
+      <div class="countdown-label">MINUTES</div>
+    </div>
+    <div class="countdown-box">
+      <div class="countdown-number" id="seconds">00</div>
+      <div class="countdown-label">SECONDS</div>
+    </div>
+  </div>
+</div>
 
 <!-- Add content sections with class="box"-->
 <section class="box">
   <h3>Welcome</h3>
-  <p>Scroll down to see the party vibes appear in clean, dark panels.</p>
+  <p>Block Party is BACK and BETTER than EVER!! Join us for the most EPIC day of the year with your friends for an experience built JUST FOR YOU and what God has in store for your life!! Whether you've never stepped foot in a church or you've been riding with us forever — it doesn't matter, Block Party is for EVERYONE!! We're splitting into two separate sessions so you get more space, more energy, and an experience made specifically for YOUR grade!!<p></p>
+  <p>At the end of the day, we believe God has something REAL to say to YOUR generation — and Block Party is the place where you'll hear it!! Whether you have questions about faith, life, or just who you are — God sees you, knows you, and has a plan for you!! </p>
 </section>
 
-<section class="box">
+<section class="box more-info">
   <h3>More Info</h3>
-  <p>Use these panels to show event details, schedule, or highlights.</p>
+
+  <p class="lead">
+    Get ready for a day filled with exciting games, incredible food, and powerful worship that will move your heart and lift your spirit.
+  </p>
+
+    <p>
+    🔫 JellyBall and Laser Tag Battles 🔫
+    <br>🏀 3-on-3 Basketball Tournament (with prizes) 🏀
+    <br>⚔️ Jousting ⚔️
+    <br>🐐 High-Energy Worship Sessions 🐐
+    <br>🎶 High-Energy Worship Sessions 🎶
+    <br>🍔 Great food, nonstop activities, and fun all day long 🍔</p>
+
+  <p class="closing">
+    And it all wraps up with a message of hope that will truly impact your life.
+  </p>
 </section>
 
 <section class="box">
-  <h3>Get Involved</h3>
-  <p>Put links, signup forms, or a countdown here.</p>
+  <div id="registration-links">
+
+    <!-- Middle School -->
+    <div class="reg-card">
+      <div class="reg-card-img">
+        <img src="kids.png" alt="Middle School students">
+        <div class="reg-badge">$20</div>
+      </div>
+      <div class="reg-card-body">
+        <h4>Middle School</h4>
+        <p>Grades 6–8. Come ready to have the time of your life!</p>
+        <a class="reg-btn" href="register_middle.html">Register →</a>
+      </div>
+    </div>
+
+    <!-- High School -->
+    <div class="reg-card">
+      <div class="reg-card-img">
+        <img src="fight.png" alt="High School students">
+        <div class="reg-badge">$20</div>
+      </div>
+      <div class="reg-card-body">
+        <h4>High School</h4>
+        <p>Grades 9–12. The biggest block party of the year awaits.</p>
+        <a class="reg-btn" href="registerHigh.html">Register →</a>
+      </div>
+    </div>
+
+    <!-- Adult Leaders -->
+    <div class="reg-card">
+      <div class="reg-card-img">
+        <img src="Volunteers.jpg" alt="Adult leaders volunteering">
+        <div class="reg-badge free">FREE</div>
+      </div>
+      <div class="reg-card-body">
+        <h4 style="color: #59cdfe;">Adult Leaders</h4>
+        <p>Help make this event unforgettable. Volunteers needed!</p>
+        <a class="reg-btn volunteer" href="adultregistration.html">Register →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* ── Registration Cards ── */
+  #registration-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 24px;
+  }
+
+  .reg-card {
+    background: #1a1a1a;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .reg-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.55);
+  }
+
+  .reg-card-img {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .reg-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .reg-card:hover .reg-card-img img {
+    transform: scale(1.06);
+  }
+
+  /* Price badge */
+  .reg-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: #ffcc00;
+    color: #1a1a1a;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  .reg-badge.free {
+    background: #59cdfe;
+    color: #1a1a1a;
+  }
+
+  .reg-card-body {
+    padding: 22px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .reg-card-body h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: #ffcc00;
+    letter-spacing: 1px;
+    margin: 0;
+  }
+
+  .reg-card-body p {
+    font-size: 0.9rem;
+    color: #a0aec0;
+    line-height: 1.6;
+    margin: 0;
+    flex: 1;
+  }
+
+  .reg-btn {
+    display: inline-block;
+    margin-top: 8px;
+    background: #ffcc00;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 10px 22px;
+    border-radius: 8px;
+    transition: background 0.2s ease, transform 0.15s ease;
+    align-self: flex-start;
+  }
+
+  .reg-btn:hover {
+    background: #f0b800;
+    transform: scale(1.04);
+  }
+
+  .reg-btn.volunteer {
+    background: #59cdfe;
+  }
+
+  .reg-btn.volunteer:hover {
+    background: #3ab8f0;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    #registration-links {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 1024px) and (min-width: 769px) {
+    #registration-links {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .reg-card:last-child {
+      grid-column: 1 / -1;
+      max-width: 50%;
+      margin: 0 auto;
+    }
+  }
+</style>
+    
 </section>
 
 <section class="info">
@@ -393,7 +817,41 @@
 <button class="info-nav next">›</button>
 
 </section>
+<section class ="questions-form">
+    <div class="contact-container">
 
+            <h2 class="contact-title">Questions or Concerns?</h2>
+            <p class="contact-subtitle">We'd love to hear from you. Fill out the form below and we'll get back to you soon.</p>
+
+            <form id="contact-form" class="contact-form" action="#" method="POST">
+
+                <div class="form-group" id="group-name">
+                    <label class="form-label" for="name">Your Name</label>
+                    <input class="form-input" type="text" id="name" name="name" placeholder="John Smith" required />
+                </div>
+
+                <div class="form-group" id="group-email">
+                    <label class="form-label" for="email">Your Email</label>
+                    <input class="form-input" type="email" id="email" name="email" placeholder="you@example.com" required />
+                </div>
+
+                <div class="form-group" id="group-subject">
+                    <label class="form-label" for="subject">Subject</label>
+                    <input class="form-input" type="text" id="subject" name="subject" placeholder="What is this about?" />
+                </div>
+
+                <div class="form-group" id="group-message">
+                    <label class="form-label" for="message">Your Message</label>
+                    <textarea class="form-textarea" id="message" name="message" rows="6" placeholder="Write your message here..." required></textarea>
+                </div>
+
+                <div class="form-group" id="group-submit">
+                    <button class="form-submit-btn" type="submit">Send Message</button>
+                </div>
+
+            </form>
+        </div>
+</section>
 </main>
 
 <script>
@@ -413,9 +871,9 @@ const prevButton = document.querySelector('.prev');
 const nextButton = document.querySelector('.next');
 
 let current = 0;
+let cycleTimer;
 
 function showCard(index) {
-
   infoCards[current].classList.remove('active');
 
   current = (index + infoCards.length) % infoCards.length;
@@ -423,10 +881,97 @@ function showCard(index) {
   infoCards[current].classList.add('active');
 }
 
-prevButton.addEventListener("click", () => showCard(current - 1));
-nextButton.addEventListener("click", () => showCard(current + 1));
+function startCycle() {
+  cycleTimer = setInterval(() => {
+    showCard(current + 1);
+  }, 6000);
+}
+
+function resetCycle() {
+  clearInterval(cycleTimer);
+  startCycle();
+}
+
+prevButton.addEventListener("click", () => {
+  showCard(current - 1);
+  resetCycle();
+});
+
+nextButton.addEventListener("click", () => {
+  showCard(current + 1);
+  resetCycle();
+});
+
+startCycle();
+
+// Countdown
+const eventDate = new Date("October 5, 2026 09:00:00");
+function updateCountdown() {
+  const diff = eventDate - new Date();
+  document.getElementById("days").textContent    = Math.floor(diff / (1000 * 60 * 60 * 24));
+  document.getElementById("hours").textContent   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  document.getElementById("minutes").textContent = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  document.getElementById("seconds").textContent = Math.floor((diff % (1000 * 60)) / 1000);
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
 
 </script>
 
+
+<footer>
+  <div class="footer-top">
+
+    <!-- Brand -->
+    <div class="footer-brand">
+      <div class="brand-banner">
+        <div class="fc-circle">FC</div>
+        <span class="brand-name">Family Church</span>
+      </div>
+      <p>Family Church is a family of neighborhood churches in South Florida to help you discover & pursue God's design for your life.</p>
+      <div class="contact-info">
+        <p>Palm Beach: <a href="tel:5616507400">561.650.7400</a></p>
+        <p>Treasure Coast: <a href="tel:7722448000">772.244.8000</a></p>
+      </div>
+      <a class="watch-live" href="https://live.gofamilychurch.org/">Watch Live</a>
+    </div>
+
+    <!-- Left link col (light) -->
+    <div class="footer-col light">
+      <ul>
+        <li><a href="https://gofamilychurch.org/about/">About</a></li>
+        <li><a href="https://gofamilychurch.org/family-home/">Part of FC</a></li>
+        <li><a href="https://gofamilychurch.org/give/">Give</a></li>
+        <li><a href="https://gofamilychurch.org/messages/">Messages</a></li>
+        <li><a href="https://gofamilychurch.org/careers/">Careers</a></li>
+        <li><a href="https://www.pbchristianacademy.org/">Our School</a></li>
+      </ul>
+    </div>
+
+    <!-- Right link col (bold) -->
+    <div class="footer-col bold">
+      <ul>
+        <li><a href="https://gofc.cc/connect">Connect Card</a></li>
+        <li><a href="https://gofamilychurch.org/groups/">Groups</a></li>
+        <li><a href="https://gofamilychurch.org/resources/">Resources</a></li>
+        <li><a href="https://gofamilychurch.org/policies/">Policies</a></li>
+        <li><a href="https://gofamilychurch.us13.list-manage.com/subscribe?u=da0a3a8c565421be4cd9fa309&id=ba0360d9ee">Subscribe via Email</a></li>
+        <li><a href="https://gofamilychurch.org/faq/">FAQ</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Bottom -->
+  <div class="footer-bottom">
+    <div class="social-links">
+      <a class="social-fb" href="https://www.facebook.com/familychurchnetwork" title="Facebook">f</a>
+      <a class="social-x"  href="https://twitter.com/gofamilychurch" title="X">𝕏</a>
+      <a class="social-ig" href="https://instagram.com/gofamilychurch" title="Instagram">&#x1F4F7;</a>
+    </div>
+    <p>Copyright 2024 Family Church</p>
+    <a href="https://www.iubenda.com/privacy-policy/55997428">Privacy Policy</a>
+  </div>
+</footer>
 </body>
 </html>

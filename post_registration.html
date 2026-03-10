@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're Registered! — Block Party 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f2f3f8;
+      color: #1a1f3c;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 56px 48px;
+      max-width: 520px;
+      width: 100%;
+      box-shadow: 0 8px 40px rgba(26,31,60,0.10);
+      border-top: 6px solid #1a1f3c;
+    }
+
+    .checkmark {
+      width: 72px;
+      height: 72px;
+      background: #1a1f3c;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+    }
+
+    .checkmark svg {
+      width: 36px;
+      height: 36px;
+      stroke: #e8b84b;
+      stroke-width: 3;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(40px, 8vw, 64px);
+      color: #1a1f3c;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    h1 span { color: #e8b84b; }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #6b6f8a;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    .details {
+      background: #f2f3f8;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+      text-align: left;
+    }
+
+    .details p {
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #6b6f8a;
+      margin-bottom: 10px;
+    }
+
+    .details p:last-child { margin-bottom: 0; }
+
+    .details p span {
+      color: #1a1f3c;
+      font-weight: 600;
+      text-transform: none;
+      letter-spacing: 0;
+      font-size: 0.95rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 36px;
+      background: #1a1f3c;
+      color: #e8b84b;
+      font-family: 'Bebas Neue', cursive;
+      font-size: 20px;
+      letter-spacing: 2px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn:hover {
+      background: #2d3580;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 12px;
+      color: #a0a4bc;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="checkmark">
+      <svg viewBox="0 0 24 24">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </div>
+
+    <h1>You're <span>Registered!</span></h1>
+    <p class="subtitle">Thanks for signing up for Block Party 2026. We can't wait to see you there — it's going to be an amazing day!</p>
+
+    <div class="details">
+      <p>Date &nbsp;<span>October 5, 2026</span></p>
+      <p>Location &nbsp;<span>FC Campus</span></p>
+      <p>Time &nbsp;<span>9:00am – 3:00pm</span></p>
+    </div>
+
+    <a href="Index.html" class="btn">Back to Home</a>
+  </div>
+
+  <footer>&copy; 2026 Family Church &nbsp;&mdash;&nbsp; Block Party</footer>
+
+</body>
+</html>

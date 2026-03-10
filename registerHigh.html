@@ -307,14 +307,14 @@
     .check-field {
       display: flex;
       align-items: flex-start;
-      gap: 14px;
-      margin-bottom: 16px;
+      gap: 12px;
+      margin-bottom: 20px;
     }
 
     .check-field input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      min-width: 18px;
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
       accent-color: var(--blue);
       cursor: pointer;
       margin-top: 3px;
@@ -406,12 +406,19 @@
       <h1>Block<em>Party</em></h1>
       <p class="hero-verse">"I can do all things through Christ who strengthens me." &mdash; Phil. 4:13</p>
       <div class="hero-meta">
-        <div>Date <span>October 18, 2025</span></div>
+        <div>Date <span>October 5, 2026</span></div>
         <div>Session <span>3:00pm &ndash; 9:00pm</span></div>
         <div>Grades <span>9th &ndash; 12th</span></div>
       </div>
     </div>
   </section>
+
+  <!-- Grade switcher -->
+  <div style="display:flex;justify-content:center;gap:0;margin:28px auto 0;max-width:480px;border:3px solid #0f2d5e;border-radius:14px;overflow:hidden;box-shadow:4px 4px 0 #0f2d5e;">
+    <a href="register_middle.html" style="flex:1;text-align:center;padding:12px 0;background:#fff;color:#636e72;font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:1px;text-decoration:none;border-right:3px solid #0f2d5e;">6th – 8th</a>
+    <span style="flex:1;text-align:center;padding:12px 0;background:linear-gradient(135deg,#0f2d5e,#1a6fc4);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:1px;">9th – 12th</span>
+    <a href="adultregistration.html" style="flex:1;text-align:center;padding:12px 0;background:#fff;color:#636e72;font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:1px;text-decoration:none;border-left:3px solid #0f2d5e;">Adult Leaders</a>
+  </div>
 
   <div class="stats-bar">
     <div class="stat">
@@ -420,7 +427,7 @@
     </div>
     <div class="stat">
       <span class="stat-num">$20</span>
-      <span class="stat-label">To Register</span>
+      <span class="stat-label">Registration</span>
     </div>
     <div class="stat">
       <span class="stat-num">1 Night</span>
@@ -439,11 +446,11 @@
       <div class="field-row">
         <div class="field">
           <label>First Name</label>
-          <input type="text" placeholder="First">
+          <input type="text" id="first-name" placeholder="First">
         </div>
         <div class="field">
           <label>Last Name</label>
-          <input type="text" placeholder="Last">
+          <input type="text" id="last-name" placeholder="Last">
         </div>
       </div>
       <div class="field">
@@ -457,7 +464,7 @@
       </div>
       <div class="field">
         <label>Date of Birth</label>
-        <input type="date">
+        <input type="date" id="dob">
       </div>
       <div class="field">
         <label>T-Shirt Size</label>
@@ -476,25 +483,25 @@
       <div class="field-row">
         <div class="field">
           <label>Parent First Name</label>
-          <input type="text" placeholder="First">
+          <input type="text" id="parent-first" placeholder="First">
         </div>
         <div class="field">
           <label>Parent Last Name</label>
-          <input type="text" placeholder="Last">
+          <input type="text" id="parent-last" placeholder="Last">
         </div>
       </div>
       <div class="field">
         <label>Parent Email</label>
-        <input type="email" placeholder="email@example.com">
+        <input type="email" id="parent-email" placeholder="email@example.com">
       </div>
       <div class="field-row">
         <div class="field">
           <label>Parent Phone</label>
-          <input type="tel" placeholder="(555) 000-0000">
+          <input type="tel" id="parent-phone" placeholder="(555) 000-0000">
         </div>
         <div class="field">
           <label>Emergency Contact</label>
-          <input type="tel" placeholder="(555) 000-0000">
+          <input type="tel" id="emergency-phone" placeholder="(555) 000-0000">
         </div>
       </div>
     </div>
@@ -502,8 +509,8 @@
     <p class="section-label">Medical</p>
     <div class="form-card">
       <div class="field">
-        <label>Allergies / Medical Notes <span style="letter-spacing:0;text-transform:none;font-size:11px">&mdash; optional</span></label>
-        <textarea placeholder="Any allergies, medications, or conditions we should know about..."></textarea>
+        <label>Allergies / Medical Notes</label>
+        <textarea id="allergies" placeholder="Any allergies, medications, or conditions we should know about..."></textarea>
       </div>
     </div>
 
@@ -511,7 +518,11 @@
     <div class="form-card">
       <div class="check-field">
         <input type="checkbox" id="waiver">
-        <span>I give permission for my student to attend Block Party 2025 and agree to the <a href="#">liability waiver</a>. I understand photos may be taken during the event.</span>
+        <span>I give permission for my child to attend Block Party 2026. I understand photos may be taken during the event and may be used by Family Church.</span>
+      </div>
+      <div class="check-field">
+        <input type="checkbox" id="waiver2">
+        <span>I understand that some of the associated risks include, but are not limited to sunburn, dehydration, insect bites, sports related injuries, and potentially more serious injuries or drowning resulting from participation in various watersport activities.</span>
       </div>
       <div class="check-field">
         <input type="checkbox" id="pickup">
@@ -519,16 +530,69 @@
       </div>
     </div>
 
-    <button class="submit-btn">Register Now</button>
-    <p class="price-note">Registration fee: <strong>$20</strong> &mdash; collected at check-in</p>
+    <button class="submit-btn" onclick="submitForm(event)">Register Now</button>
+    <p class="price-note">Registration fee: <strong>$20</strong></p>
+    <p id="agree-error" style="display:none;color:#e23c49;text-align:center;font-size:0.95rem;margin-top:8px;">Please check both boxes before submitting.</p>
+    <div style="text-align:center;margin-top:20px;">
+      <a href="Index.html" style="display:inline-block;padding:12px 28px;border:2px solid var(--navy);border-radius:8px;color:var(--navy);text-decoration:none;font-size:0.9rem;font-weight:700;letter-spacing:0.05em;transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--navy)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='var(--navy)'">&#8592; Back to Home</a>
+    </div>
 
   </div>
 
+  <script>
+    function submitForm(e) {
+      const required = ['first-name','last-name','dob','parent-first','parent-last','parent-email','parent-phone','emergency-phone','allergies'];
+      const waiver  = document.getElementById('waiver');
+      const waiver2 = document.getElementById('waiver2');
+      const pickup  = document.getElementById('pickup');
+      const err     = document.getElementById('agree-error');
+
+      let valid = true;
+
+      required.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el.value.trim()) {
+          el.style.border = '1.5px solid #e23c49';
+          valid = false;
+        } else {
+          el.style.border = '';
+        }
+      });
+
+      // Validate radio groups
+      const radioGroups = [
+        { name: 'grade', label: 'Grade' },
+        { name: 'shirt', label: 'T-Shirt Size' }
+      ];
+      radioGroups.forEach(({ name }) => {
+        const checked = document.querySelector(`input[name="${name}"]:checked`);
+        const btns = document.querySelectorAll(`input[name="${name}"] + .toggle-btn`);
+        if (!checked) {
+          btns.forEach(btn => btn.style.outline = '2px solid #e23c49');
+          valid = false;
+        } else {
+          btns.forEach(btn => btn.style.outline = '');
+        }
+      });
+
+      if (!waiver.checked || !waiver2.checked || !pickup.checked) {
+        err.style.display = 'block';
+        [waiver, waiver2, pickup].forEach(cb => {
+          cb.style.outline = cb.checked ? '' : '2px solid #e23c49';
+        });
+        valid = false;
+      } else {
+        err.style.display = 'none';
+        [waiver, waiver2, pickup].forEach(cb => cb.style.outline = '');
+      }
+
+      if (valid) window.location.href = 'post_registration.html';
+    }
+  </script>
+
   <footer>
     &copy; 2025 Family Church &nbsp;&mdash;&nbsp;
-    <a href="Code-a-thon-2026/test.html">Back to Block Party</a>
-    &nbsp;&mdash;&nbsp;
-    <a href="register_middle.html">Middle School Registration</a>
+    <a href="Index.html">Back to Block Party</a>
   </footer>
 
 </body>
