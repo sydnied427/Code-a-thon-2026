@@ -406,7 +406,7 @@
       <h1>Block<em>Party</em></h1>
       <p class="hero-verse">"I can do all things through Christ who strengthens me." &mdash; Phil. 4:13</p>
       <div class="hero-meta">
-        <div>Date <span>October 18, 2025</span></div>
+        <div>Date <span>October 5, 2026</span></div>
         <div>Session <span>3:00pm &ndash; 9:00pm</span></div>
         <div>Grades <span>9th &ndash; 12th</span></div>
       </div>
@@ -446,11 +446,11 @@
       <div class="field-row">
         <div class="field">
           <label>First Name</label>
-          <input type="text" placeholder="First">
+          <input type="text" id="first-name" placeholder="First">
         </div>
         <div class="field">
           <label>Last Name</label>
-          <input type="text" placeholder="Last">
+          <input type="text" id="last-name" placeholder="Last">
         </div>
       </div>
       <div class="field">
@@ -483,25 +483,25 @@
       <div class="field-row">
         <div class="field">
           <label>Parent First Name</label>
-          <input type="text" placeholder="First">
+          <input type="text" id="parent-first" placeholder="First">
         </div>
         <div class="field">
           <label>Parent Last Name</label>
-          <input type="text" placeholder="Last">
+          <input type="text" id="parent-last" placeholder="Last">
         </div>
       </div>
       <div class="field">
         <label>Parent Email</label>
-        <input type="email" placeholder="email@example.com">
+        <input type="email" id="parent-email" placeholder="email@example.com">
       </div>
       <div class="field-row">
         <div class="field">
           <label>Parent Phone</label>
-          <input type="tel" placeholder="(555) 000-0000">
+          <input type="tel" id="parent-phone" placeholder="(555) 000-0000">
         </div>
         <div class="field">
           <label>Emergency Contact</label>
-          <input type="tel" placeholder="(555) 000-0000">
+          <input type="tel" id="emergency-phone" placeholder="(555) 000-0000">
         </div>
       </div>
     </div>
@@ -529,30 +529,49 @@
     <button class="submit-btn" onclick="submitForm(event)">Register Now</button>
     <p class="price-note">Registration fee: <strong>$20</strong></p>
     <p id="agree-error" style="display:none;color:#e23c49;text-align:center;font-size:0.95rem;margin-top:8px;">Please check both boxes before submitting.</p>
+    <div style="text-align:center;margin-top:20px;">
+      <a href="Index.html" style="display:inline-block;padding:12px 28px;border:2px solid var(--navy);border-radius:8px;color:var(--navy);text-decoration:none;font-size:0.9rem;font-weight:700;letter-spacing:0.05em;transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--navy)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='var(--navy)'">&#8592; Back to Home</a>
+    </div>
 
   </div>
 
   <script>
     function submitForm(e) {
+      const required = ['first-name','last-name','parent-first','parent-last','parent-email','parent-phone','emergency-phone'];
       const waiver = document.getElementById('waiver');
       const pickup = document.getElementById('pickup');
       const err    = document.getElementById('agree-error');
+
+      let valid = true;
+
+      required.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el.value.trim()) {
+          el.style.border = '1.5px solid #e23c49';
+          valid = false;
+        } else {
+          el.style.border = '';
+        }
+      });
+
       if (!waiver.checked || !pickup.checked) {
-        e.preventDefault();
         err.style.display = 'block';
         [waiver, pickup].forEach(cb => {
           cb.style.outline = cb.checked ? '' : '2px solid #e23c49';
         });
+        valid = false;
       } else {
         err.style.display = 'none';
         [waiver, pickup].forEach(cb => cb.style.outline = '');
       }
+
+      if (valid) window.location.href = 'post_registration.html';
     }
   </script>
 
   <footer>
     &copy; 2025 Family Church &nbsp;&mdash;&nbsp;
-    <a href="Code-a-thon-2026/test.html">Back to Block Party</a>
+    <a href="Index.html">Back to Block Party</a>
   </footer>
 
 </body>

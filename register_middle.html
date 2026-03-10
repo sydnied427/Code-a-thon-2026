@@ -319,8 +319,8 @@
   <div class="hero">
     <div style="position:relative;z-index:2;">
       <div class="hero-badge">Family Church Students</div>
-      <h1>Block Party<br><span>2025</span> 🎊</h1>
-      <p>📅 October 18 &nbsp;·&nbsp; 9:00am – 3:00pm</p>
+      <h1>Block Party<br><span>2026</span> 🎊</h1>
+      <p>📅 October 5, 2026 &nbsp;·&nbsp; 9:00am – 3:00pm</p>
       <p>6th – 8th Grade</p>
     </div>
   </div>
@@ -348,11 +348,11 @@
       <div class="field-row">
         <div class="field">
           <label>First Name</label>
-          <input type="text" placeholder="e.g. Jordan">
+          <input type="text" id="first-name" placeholder="e.g. Jordan">
         </div>
         <div class="field">
           <label>Last Name</label>
-          <input type="text" placeholder="e.g. Smith">
+          <input type="text" id="last-name" placeholder="e.g. Smith">
         </div>
       </div>
 
@@ -389,27 +389,27 @@
       <div class="field-row">
         <div class="field">
           <label>Parent First Name</label>
-          <input type="text" placeholder="e.g. Chris">
+          <input type="text" id="parent-first" placeholder="e.g. Chris">
         </div>
         <div class="field">
           <label>Parent Last Name</label>
-          <input type="text" placeholder="e.g. Smith">
+          <input type="text" id="parent-last" placeholder="e.g. Smith">
         </div>
       </div>
 
       <div class="field">
         <label>Parent Email</label>
-        <input type="email" placeholder="parent@email.com">
+        <input type="email" id="parent-email" placeholder="parent@email.com">
       </div>
 
       <div class="field">
         <label>Parent Phone</label>
-        <input type="tel" placeholder="(555) 000-0000">
+        <input type="tel" id="parent-phone" placeholder="(555) 000-0000">
       </div>
 
       <div class="field">
         <label>Emergency Contact Phone</label>
-        <input type="tel" placeholder="(555) 000-0000">
+        <input type="tel" id="emergency-phone" placeholder="(555) 000-0000">
       </div>
 
       <hr class="divider">
@@ -433,13 +433,51 @@
         <span>My student has permission to be released to the guardian who dropped them off.</span>
       </div>
 
-      <button class="submit-btn">🎉 Register Now!</button>
+      <button class="submit-btn" onclick="submitForm(event)">🎉 Register Now!</button>
       <p class="price-note">Registration fee: <strong>$20</strong></p>
+      <p id="agree-error" style="display:none;color:#e23c49;text-align:center;font-size:0.95rem;margin-top:8px;">Please check both boxes before submitting.</p>
+      <div style="text-align:center;margin-top:20px;">
+        <a href="Index.html" style="display:inline-block;padding:12px 28px;border:2px solid #ff6b6b;border-radius:8px;color:#ff6b6b;text-decoration:none;font-size:0.9rem;font-weight:700;letter-spacing:0.05em;transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='#ff6b6b';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#ff6b6b'">&#8592; Back to Home</a>
+      </div>
 
     </div>
   </div>
 
-  <footer>© 2025 Family Church · <a href="test.html" style="color:#ff6b6b;text-decoration:none;font-weight:800;">Back to Block Party</a></footer>
+  <footer>© 2025 Family Church · <a href="Index.html" style="color:#ff6b6b;text-decoration:none;font-weight:800;">Back to Block Party</a></footer>
+
+  <script>
+    function submitForm(e) {
+      const required = ['first-name','last-name','parent-first','parent-last','parent-email','parent-phone','emergency-phone'];
+      const waiver = document.getElementById('waiver');
+      const pickup = document.getElementById('pickup');
+      const err    = document.getElementById('agree-error');
+
+      let valid = true;
+
+      required.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el.value.trim()) {
+          el.style.border = '1.5px solid #e23c49';
+          valid = false;
+        } else {
+          el.style.border = '';
+        }
+      });
+
+      if (!waiver.checked || !pickup.checked) {
+        err.style.display = 'block';
+        [waiver, pickup].forEach(cb => {
+          cb.style.outline = cb.checked ? '' : '2px solid #e23c49';
+        });
+        valid = false;
+      } else {
+        err.style.display = 'none';
+        [waiver, pickup].forEach(cb => cb.style.outline = '');
+      }
+
+      if (valid) window.location.href = 'post_registration.html';
+    }
+  </script>
 
 </body>
 </html>
