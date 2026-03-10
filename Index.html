@@ -413,21 +413,183 @@
 </section>
 
 <section class="box">
-  <h3>Get Involved</h3>
-  <div id = "registration-links">
-      <div id = "middle-school">
-          <h4>Middle School</h4>
-          <a href="registerHigh.html">Register</a>
+  <div id="registration-links">
+
+    <!-- Middle School -->
+    <div class="reg-card">
+      <div class="reg-card-img">
+        <img src="kids.png" alt="Middle School students">
+        <div class="reg-badge">$20</div>
       </div>
-      <div>
-          <h4>High School</h4>
-          <a href="register_middle.html">Register</a>
-      </div>    
-      <div>
-          <h4>Adult Leaders</h4>
-          <a href="registerVolunteer">Register</a>
-      </div>    
+      <div class="reg-card-body">
+        <h4>Middle School</h4>
+        <p>Grades 6–8. Come ready to have the time of your life!</p>
+        <a class="reg-btn" href="registerHigh.html">Register →</a>
+      </div>
+    </div>
+
+    <!-- High School -->
+    <div class="reg-card">
+      <div class="reg-card-img">
+        <img src="fight.png" alt="High School students">
+        <div class="reg-badge">$20</div>
+      </div>
+      <div class="reg-card-body">
+        <h4>High School</h4>
+        <p>Grades 9–12. The biggest block party of the year awaits.</p>
+        <a class="reg-btn" href="registerHigh.html">Register →</a>
+      </div>
+    </div>
+
+    <!-- Adult Leaders -->
+    <div class="reg-card">
+      <div class="reg-card-img">
+        <img src="IMG_9448.jpg" alt="Adult leaders volunteering">
+        <div class="reg-badge free">FREE</div>
+      </div>
+      <div class="reg-card-body">
+        <h4>Adult Leaders</h4>
+        <p>Help make this event unforgettable. Volunteers needed!</p>
+        <a class="reg-btn volunteer" href="registerVolunteer.html">Register →</a>
+      </div>
+    </div>
+
   </div>
+</section>
+
+<style>
+  /* ── Registration Cards ── */
+  #registration-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 24px;
+  }
+
+  .reg-card {
+    background: #1a1a1a;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .reg-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.55);
+  }
+
+  .reg-card-img {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .reg-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .reg-card:hover .reg-card-img img {
+    transform: scale(1.06);
+  }
+
+  /* Price badge */
+  .reg-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: #ffcc00;
+    color: #1a1a1a;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  .reg-badge.free {
+    background: #59cdfe;
+    color: #1a1a1a;
+  }
+
+  .reg-card-body {
+    padding: 22px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .reg-card-body h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: #ffcc00;
+    letter-spacing: 1px;
+    margin: 0;
+  }
+
+  .reg-card-body p {
+    font-size: 0.9rem;
+    color: #a0aec0;
+    line-height: 1.6;
+    margin: 0;
+    flex: 1;
+  }
+
+  .reg-btn {
+    display: inline-block;
+    margin-top: 8px;
+    background: #ffcc00;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 10px 22px;
+    border-radius: 8px;
+    transition: background 0.2s ease, transform 0.15s ease;
+    align-self: flex-start;
+  }
+
+  .reg-btn:hover {
+    background: #f0b800;
+    transform: scale(1.04);
+  }
+
+  .reg-btn.volunteer {
+    background: #59cdfe;
+  }
+
+  .reg-btn.volunteer:hover {
+    background: #3ab8f0;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    #registration-links {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 1024px) and (min-width: 769px) {
+    #registration-links {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .reg-card:last-child {
+      grid-column: 1 / -1;
+      max-width: 50%;
+      margin: 0 auto;
+    }
+  }
+</style>
     
 </section>
 
